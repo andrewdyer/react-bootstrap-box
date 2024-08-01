@@ -45,4 +45,16 @@ describe('Box', () => {
 
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('align-middle');
     });
+
+    test('renders box component as invisible', () => {
+        renderBox({ invisible: true });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('invisible');
+    });
+
+    test('renders box component as visible', () => {
+        renderBox({ visible: true });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('visible');
+    });
 });
