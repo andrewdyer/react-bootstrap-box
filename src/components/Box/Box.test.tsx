@@ -95,4 +95,17 @@ describe('Box', () => {
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('flex-row');
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('flex-sm-column');
     });
+
+    test('renders box component with justify content property', () => {
+        renderBox({ justifyContent: 'center' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('justify-content-center');
+    });
+
+    test('renders box component with responsive justify content property', () => {
+        renderBox({ justifyContent: { xs: 'start', sm: 'end' } });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('justify-content-start');
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('justify-content-sm-end');
+    });
 });

@@ -14,6 +14,8 @@ export type TBoxDisplay =
 
 export type TBoxFlex = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
+export type TBoxJustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
+
 export type TBoxSizing = '25' | '50' | '75' | '100' | 'auto';
 
 export type TResponsiveBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
