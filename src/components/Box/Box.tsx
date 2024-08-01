@@ -1,11 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import type { TBoxAlign, TBoxSizing } from '../../types';
+import type { TBoxAlign, TBoxDisplay, TBoxSizing, TResponsiveValue } from '../../types';
+import { generateResponsiveClasses } from '../../utilities';
 
 export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     as?: keyof React.ReactHTML;
     align?: TBoxAlign;
     bg?: string;
+    d?: TResponsiveValue<TBoxDisplay>;
     h?: TBoxSizing;
     invisible?: boolean;
     text?: string;
@@ -18,6 +20,7 @@ const Box: React.FC<BoxProps> = ({
     className,
     align,
     bg,
+    d,
     h,
     invisible,
     text,
@@ -35,6 +38,7 @@ const Box: React.FC<BoxProps> = ({
             [`visible`]: visible,
             [`w-${w}`]: w
         },
+        generateResponsiveClasses('d', d),
         className
     );
 

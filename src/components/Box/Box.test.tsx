@@ -69,4 +69,17 @@ describe('Box', () => {
 
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('w-50');
     });
+
+    test('renders box component with display property', () => {
+        renderBox({ d: 'block' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('d-block');
+    });
+
+    test('renders box component with responsive display property', () => {
+        renderBox({ d: { xs: 'none', sm: 'block' } });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('d-none');
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('d-sm-block');
+    });
 });
