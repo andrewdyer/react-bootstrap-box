@@ -12,6 +12,7 @@ import type {
     TBoxPointerEvents,
     TBoxSizing,
     TBoxSpacing,
+    TBoxTextTransform,
     TBoxUserSelect,
     TResponsiveValue
 } from '../../types';
@@ -48,6 +49,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     pointerEvents?: TBoxPointerEvents;
     textWrap?: boolean;
     textNoWrap?: boolean;
+    textTransform?: TBoxTextTransform;
     userSelect?: TBoxUserSelect;
     visible?: boolean;
     w?: TBoxSizing;
@@ -86,6 +88,7 @@ const Box: React.FC<BoxProps> = ({
     pointerEvents,
     textWrap,
     textNoWrap,
+    textTransform,
     userSelect,
     visible,
     w,
@@ -107,7 +110,8 @@ const Box: React.FC<BoxProps> = ({
             [`user-select-${userSelect}`]: userSelect,
             [`visible`]: visible,
             [`w-${w}`]: w,
-            'text-break': wordBreak
+            'text-break': wordBreak,
+            [`text-${textTransform}`]: textTransform
         },
         generateResponsiveClasses('align-items', alignItems),
         generateResponsiveClasses('align-self', alignSelf),

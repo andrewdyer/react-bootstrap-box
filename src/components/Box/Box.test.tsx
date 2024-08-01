@@ -359,4 +359,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('text-break');
     });
+
+    test('renders box component with text transform property', () => {
+        renderBox({ textTransform: 'capitalize' });
+
+        expect(getBoxElement()).toHaveClass('text-capitalize');
+    });
 });
