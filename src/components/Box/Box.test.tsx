@@ -21,4 +21,10 @@ describe('Box', () => {
         expect(BoxElement).toBeInTheDocument();
         expect(BoxElement.tagName).toBe('SECTION');
     });
+
+    test('renders box component with custom class', () => {
+        renderBox({ className: 'custom-class' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('custom-class');
+    });
 });
