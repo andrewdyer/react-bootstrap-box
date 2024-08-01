@@ -27,4 +27,10 @@ describe('Box', () => {
 
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('custom-class');
     });
+
+    test('renders box component with background color', () => {
+        renderBox({ bg: 'primary' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('bg-primary');
+    });
 });
