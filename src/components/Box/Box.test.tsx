@@ -57,4 +57,16 @@ describe('Box', () => {
 
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('visible');
     });
+
+    test('renders box component with height', () => {
+        renderBox({ h: '50' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('h-50');
+    });
+
+    test('renders box component with width', () => {
+        renderBox({ w: '50' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('w-50');
+    });
 });

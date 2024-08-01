@@ -1,14 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
-import type { TBoxAlign } from '../../types';
+import type { TBoxAlign, TBoxSizing } from '../../types';
 
 export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     as?: keyof React.ReactHTML;
     align?: TBoxAlign;
     bg?: string;
+    h?: TBoxSizing;
     invisible?: boolean;
     text?: string;
     visible?: boolean;
+    w?: TBoxSizing;
 }
 
 const Box: React.FC<BoxProps> = ({
@@ -16,18 +18,22 @@ const Box: React.FC<BoxProps> = ({
     className,
     align,
     bg,
+    h,
     invisible,
     text,
     visible,
+    w,
     ...props
 }) => {
     const classNames = classnames(
         {
             [`align-${align}`]: align,
             [`bg-${bg}`]: bg,
-            [`visible`]: visible,
+            [`invisible`]: invisible,
+            [`h-${h}`]: h,
             [`text-${text}`]: text,
-            [`invisible`]: invisible
+            [`visible`]: visible,
+            [`w-${w}`]: w
         },
         className
     );
