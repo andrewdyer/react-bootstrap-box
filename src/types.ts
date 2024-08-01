@@ -22,6 +22,8 @@ export type TBoxJustifyContent = 'start' | 'end' | 'center' | 'between' | 'aroun
 
 export type TBoxSizing = '25' | '50' | '75' | '100' | 'auto';
 
+export type TBoxUserSelect = 'none' | 'all' | 'auto';
+
 export type TResponsiveBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export type TResponsiveValue<T> = T | { [key in TResponsiveBreakpoints]?: T } | undefined;

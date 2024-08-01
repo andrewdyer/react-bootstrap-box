@@ -8,6 +8,7 @@ import type {
     TBoxFlexDirection,
     TBoxJustifyContent,
     TBoxSizing,
+    TBoxUserSelect,
     TResponsiveValue
 } from '../../types';
 import { generateResponsiveClasses } from '../../utilities';
@@ -24,6 +25,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     invisible?: boolean;
     justifyContent?: TResponsiveValue<TBoxJustifyContent>;
     text?: string;
+    userSelect?: TBoxUserSelect;
     visible?: boolean;
     w?: TBoxSizing;
 }
@@ -41,6 +43,7 @@ const Box: React.FC<BoxProps> = ({
     invisible,
     justifyContent,
     text,
+    userSelect,
     visible,
     w,
     ...props
@@ -52,6 +55,7 @@ const Box: React.FC<BoxProps> = ({
             [`invisible`]: invisible,
             [`h-${h}`]: h,
             [`text-${text}`]: text,
+            [`user-select-${userSelect}`]: userSelect,
             [`visible`]: visible,
             [`w-${w}`]: w
         },

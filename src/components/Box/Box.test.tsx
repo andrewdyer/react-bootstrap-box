@@ -135,4 +135,10 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('align-self-start');
         expect(getBoxElement()).toHaveClass('align-self-sm-end');
     });
+
+    test('renders box component with user select property', () => {
+        renderBox({ userSelect: 'none' });
+
+        expect(getBoxElement()).toHaveClass('user-select-none');
+    });
 });
