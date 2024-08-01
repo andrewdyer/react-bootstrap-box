@@ -6,6 +6,7 @@ import type {
     TBoxAlignSelf,
     TBoxDisplay,
     TBoxFlexDirection,
+    TBoxFontSize,
     TBoxJustifyContent,
     TBoxOpacity,
     TBoxOverflow,
@@ -27,6 +28,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     color?: string;
     d?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
+    fs?: TBoxFontSize;
     h?: TBoxSizing;
     invisible?: boolean;
     justifyContent?: TResponsiveValue<TBoxJustifyContent>;
@@ -66,6 +68,7 @@ const Box: React.FC<BoxProps> = ({
     color,
     d,
     flexDirection,
+    fs,
     h,
     invisible,
     justifyContent,
@@ -101,6 +104,7 @@ const Box: React.FC<BoxProps> = ({
             [`bg-${bg}`]: bg,
             [`invisible`]: invisible,
             [`h-${h}`]: h,
+            [`fs-${fs}`]: fs,
             [`opacity-${opacity}`]: opacity,
             [`overflow-${overflow}`]: overflow,
             [`pe-${pointerEvents}`]: pointerEvents,

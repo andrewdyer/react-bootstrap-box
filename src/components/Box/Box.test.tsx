@@ -365,4 +365,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('text-capitalize');
     });
+
+    test('renders box component with font size property', () => {
+        renderBox({ fs: '3' });
+
+        expect(getBoxElement()).toHaveClass('fs-3');
+    });
 });
