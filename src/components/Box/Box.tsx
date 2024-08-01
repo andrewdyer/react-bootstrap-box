@@ -51,6 +51,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     userSelect?: TBoxUserSelect;
     visible?: boolean;
     w?: TBoxSizing;
+    wordBreak?: boolean;
 }
 
 const Box: React.FC<BoxProps> = ({
@@ -88,6 +89,7 @@ const Box: React.FC<BoxProps> = ({
     userSelect,
     visible,
     w,
+    wordBreak,
     ...props
 }) => {
     const classNames = classnames(
@@ -104,7 +106,8 @@ const Box: React.FC<BoxProps> = ({
             'text-nowrap': textNoWrap,
             [`user-select-${userSelect}`]: userSelect,
             [`visible`]: visible,
-            [`w-${w}`]: w
+            [`w-${w}`]: w,
+            'text-break': wordBreak
         },
         generateResponsiveClasses('align-items', alignItems),
         generateResponsiveClasses('align-self', alignSelf),

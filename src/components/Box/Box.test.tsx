@@ -353,4 +353,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('text-nowrap');
     });
+
+    test('renders box component with word break property', () => {
+        renderBox({ wordBreak: true });
+
+        expect(getBoxElement()).toHaveClass('text-break');
+    });
 });
