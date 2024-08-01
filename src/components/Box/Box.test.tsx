@@ -82,4 +82,17 @@ describe('Box', () => {
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('d-none');
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('d-sm-block');
     });
+
+    test('renders box component with flex property', () => {
+        renderBox({ flex: 'row' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('flex-row');
+    });
+
+    test('renders box component with responsive flex property', () => {
+        renderBox({ flex: { xs: 'row', sm: 'column' } });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('flex-row');
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('flex-sm-column');
+    });
 });
