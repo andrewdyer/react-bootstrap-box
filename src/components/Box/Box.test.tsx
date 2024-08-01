@@ -159,4 +159,187 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('overflow-hidden');
     });
+
+    test('renders box component with margin property', () => {
+        renderBox({ m: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('m-auto');
+    });
+
+    test('renders box component with responsive margin property', () => {
+        renderBox({ m: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('m-auto');
+        expect(getBoxElement()).toHaveClass('m-sm-0');
+    });
+
+    test('renders box component with margin top property', () => {
+        renderBox({ mt: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('mt-auto');
+    });
+
+
+    test('renders box component with responsive margin top property', () => {
+        renderBox({ mt: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('mt-auto');
+        expect(getBoxElement()).toHaveClass('mt-sm-0');
+    });
+
+    test('renders box component with margin bottom property', () => {
+        renderBox({ mb: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('mb-auto');
+    });
+
+    test('renders box component with responsive margin bottom property', () => {
+        renderBox({ mb: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('mb-auto');
+        expect(getBoxElement()).toHaveClass('mb-sm-0');
+    });
+
+    test('renders box component with margin start property', () => {
+        renderBox({ ms: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('ms-auto');
+    });
+
+    test('renders box component with responsive margin start property', () => {
+        renderBox({ ms: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('ms-auto');
+        expect(getBoxElement()).toHaveClass('ms-sm-0');
+    });
+
+    test('renders box component with margin end property', () => {
+        renderBox({ me: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('me-auto');
+    });
+
+    test('renders box component with responsive margin end property', () => {
+        renderBox({ me: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('me-auto');
+        expect(getBoxElement()).toHaveClass('me-sm-0');
+    });
+
+    test('renders box component with margin x property', () => {
+        renderBox({ mx: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('mx-auto');
+    });
+
+    test('renders box component with responsive margin x property', () => {
+        renderBox({ mx: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('mx-auto');
+        expect(getBoxElement()).toHaveClass('mx-sm-0');
+    });
+
+    test('renders box component with margin y property', () => {
+        renderBox({ my: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('my-auto');
+    });
+
+    test('renders box component with responsive margin y property', () => {
+        renderBox({ my: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('my-auto');
+        expect(getBoxElement()).toHaveClass('my-sm-0');
+    });
+
+    test('renders box component with padding property', () => {
+        renderBox({ p: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('p-auto');
+    });
+
+    test('renders box component with responsive padding property', () => {
+        renderBox({ p: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('p-auto');
+        expect(getBoxElement()).toHaveClass('p-sm-0');
+    });
+
+    test('renders box component with padding top property', () => {
+        renderBox({ pt: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('pt-auto');
+    });
+
+    test('renders box component with responsive padding top property', () => {
+        renderBox({ pt: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('pt-auto');
+        expect(getBoxElement()).toHaveClass('pt-sm-0');
+    });
+
+    test('renders box component with padding bottom property', () => {
+        renderBox({ pb: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('pb-auto');
+    });
+
+    test('renders box component with responsive padding bottom property', () => {
+        renderBox({ pb: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('pb-auto');
+        expect(getBoxElement()).toHaveClass('pb-sm-0');
+    });
+
+    test('renders box component with padding start property', () => {
+        renderBox({ ps: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('ps-auto');
+    });
+
+    test('renders box component with responsive padding start property', () => {
+        renderBox({ ps: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('ps-auto');
+        expect(getBoxElement()).toHaveClass('ps-sm-0');
+    });
+
+    test('renders box component with padding end property', () => {
+        renderBox({ pe: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('pe-auto');
+    });
+
+    test('renders box component with responsive padding end property', () => {
+        renderBox({ pe: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('pe-auto');
+        expect(getBoxElement()).toHaveClass('pe-sm-0');
+    });
+
+    test('renders box component with padding x property', () => {
+        renderBox({ px: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('px-auto');
+    });
+
+    test('renders box component with responsive padding x property', () => {
+        renderBox({ px: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('px-auto');
+        expect(getBoxElement()).toHaveClass('px-sm-0');
+    });
+
+    test('renders box component with padding y property', () => {
+        renderBox({ py: 'auto' });
+
+        expect(getBoxElement()).toHaveClass('py-auto');
+    });
+
+    test('renders box component with responsive padding y property', () => {
+        renderBox({ py: { xs: 'auto', sm: '0' } });
+
+        expect(getBoxElement()).toHaveClass('py-auto');
+        expect(getBoxElement()).toHaveClass('py-sm-0');
+    });
 });
