@@ -153,4 +153,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('opacity-50');
     });
+
+    test('renders box component with overflow property', () => {
+        renderBox({ overflow: 'hidden' });
+
+        expect(getBoxElement()).toHaveClass('overflow-hidden');
+    });
 });

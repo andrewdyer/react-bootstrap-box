@@ -8,6 +8,7 @@ import type {
     TBoxFlexDirection,
     TBoxJustifyContent,
     TBoxOpacity,
+    TBoxOverflow,
     TBoxPointerEvents,
     TBoxSizing,
     TBoxUserSelect,
@@ -27,6 +28,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     invisible?: boolean;
     justifyContent?: TResponsiveValue<TBoxJustifyContent>;
     opacity?: TBoxOpacity;
+    overflow?: TBoxOverflow;
     pointerEvents?: TBoxPointerEvents;
     text?: string;
     userSelect?: TBoxUserSelect;
@@ -47,6 +49,7 @@ const Box: React.FC<BoxProps> = ({
     invisible,
     justifyContent,
     opacity,
+    overflow,
     pointerEvents,
     text,
     userSelect,
@@ -61,6 +64,7 @@ const Box: React.FC<BoxProps> = ({
             [`invisible`]: invisible,
             [`h-${h}`]: h,
             [`opacity-${opacity}`]: opacity,
+            [`overflow-${overflow}`]: overflow,
             [`pe-${pointerEvents}`]: pointerEvents,
             [`text-${text}`]: text,
             [`user-select-${userSelect}`]: userSelect,

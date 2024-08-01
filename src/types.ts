@@ -22,6 +22,8 @@ export type TBoxJustifyContent = 'start' | 'end' | 'center' | 'between' | 'aroun
 
 export type TBoxOpacity = '25' | '50' | '75' | '100';
 
+export type TBoxOverflow = 'visible' | 'hidden' | 'scroll' | 'auto';
+
 export type TBoxPointerEvents = 'none' | 'auto';
 
 export type TBoxSizing = '25' | '50' | '75' | '100' | 'auto';
