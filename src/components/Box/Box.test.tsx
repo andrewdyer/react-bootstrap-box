@@ -109,4 +109,17 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('justify-content-start');
         expect(getBoxElement()).toHaveClass('justify-content-sm-end');
     });
+
+    test('renders box component with align items property', () => {
+        renderBox({ alignItems: 'center' });
+
+        expect(getBoxElement()).toHaveClass('align-items-center');
+    });
+
+    test('renders box component with responsive align items property', () => {
+        renderBox({ alignItems: { xs: 'start', sm: 'end' } });
+
+        expect(getBoxElement()).toHaveClass('align-items-start');
+        expect(getBoxElement()).toHaveClass('align-items-sm-end');
+    });
 });

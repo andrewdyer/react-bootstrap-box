@@ -1,5 +1,7 @@
 export type TBoxAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-top' | 'text-bottom';
 
+export type TBoxAlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+
 export type TBoxDisplay =
     | 'none'
     | 'inline'
