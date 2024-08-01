@@ -23,6 +23,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     alignItems?: TResponsiveValue<TBoxAlignItems>;
     alignSelf?: TResponsiveValue<TBoxAlignSelf>;
     bg?: string;
+    color?: string;
     d?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
     h?: TBoxSizing;
@@ -45,7 +46,6 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     px?: TResponsiveValue<TBoxSpacing>;
     py?: TResponsiveValue<TBoxSpacing>;
     pointerEvents?: TBoxPointerEvents;
-    text?: string;
     userSelect?: TBoxUserSelect;
     visible?: boolean;
     w?: TBoxSizing;
@@ -80,7 +80,7 @@ const Box: React.FC<BoxProps> = ({
     px,
     py,
     pointerEvents,
-    text,
+    color,
     userSelect,
     visible,
     w,
@@ -95,7 +95,7 @@ const Box: React.FC<BoxProps> = ({
             [`opacity-${opacity}`]: opacity,
             [`overflow-${overflow}`]: overflow,
             [`pe-${pointerEvents}`]: pointerEvents,
-            [`text-${text}`]: text,
+            [`text-${color}`]: color,
             [`user-select-${userSelect}`]: userSelect,
             [`visible`]: visible,
             [`w-${w}`]: w

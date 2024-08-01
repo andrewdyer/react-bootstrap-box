@@ -36,7 +36,7 @@ describe('Box', () => {
     });
 
     test('renders box component with text color', () => {
-        renderBox({ text: 'primary' });
+        renderBox({ color: 'primary' });
 
         expect(getBoxElement()).toHaveClass('text-primary');
     });
@@ -178,7 +178,6 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('mt-auto');
     });
-
 
     test('renders box component with responsive margin top property', () => {
         renderBox({ mt: { xs: 'auto', sm: '0' } });
