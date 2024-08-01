@@ -20,6 +20,8 @@ export type TBoxFlexDirection = 'row' | 'column' | 'row-reverse' | 'column-rever
 
 export type TBoxJustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
 
+export type TBoxPointerEvents = 'none' | 'auto';
+
 export type TBoxSizing = '25' | '50' | '75' | '100' | 'auto';
 
 export type TBoxUserSelect = 'none' | 'all' | 'auto';

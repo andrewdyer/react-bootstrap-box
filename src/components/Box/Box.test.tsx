@@ -141,4 +141,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('user-select-none');
     });
+
+    test('renders box component with pointer events property', () => {
+        renderBox({ pointerEvents: 'none' });
+
+        expect(getBoxElement()).toHaveClass('pe-none');
+    });
 });
