@@ -35,6 +35,12 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('bg-primary');
     });
 
+    test('renders box component with gradient background', () => {
+        renderBox({ gradient: true });
+
+        expect(getBoxElement()).toHaveClass('bg-gradient');
+    });
+
     test('renders box component with text color', () => {
         renderBox({ color: 'primary' });
 

@@ -29,6 +29,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     d?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
     fs?: TBoxFontSize;
+    gradient?: boolean;
     h?: TBoxSizing;
     invisible?: boolean;
     justifyContent?: TResponsiveValue<TBoxJustifyContent>;
@@ -69,6 +70,7 @@ const Box: React.FC<BoxProps> = ({
     d,
     flexDirection,
     fs,
+    gradient,
     h,
     invisible,
     justifyContent,
@@ -102,6 +104,7 @@ const Box: React.FC<BoxProps> = ({
         {
             [`align-${align}`]: align,
             [`bg-${bg}`]: bg,
+            ['bg-gradient']: gradient,
             [`invisible`]: invisible,
             [`h-${h}`]: h,
             [`fs-${fs}`]: fs,
