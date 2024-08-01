@@ -46,6 +46,8 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     px?: TResponsiveValue<TBoxSpacing>;
     py?: TResponsiveValue<TBoxSpacing>;
     pointerEvents?: TBoxPointerEvents;
+    textWrap?: boolean;
+    textNoWrap?: boolean;
     userSelect?: TBoxUserSelect;
     visible?: boolean;
     w?: TBoxSizing;
@@ -58,6 +60,7 @@ const Box: React.FC<BoxProps> = ({
     alignItems,
     alignSelf,
     bg,
+    color,
     d,
     flexDirection,
     h,
@@ -80,7 +83,8 @@ const Box: React.FC<BoxProps> = ({
     px,
     py,
     pointerEvents,
-    color,
+    textWrap,
+    textNoWrap,
     userSelect,
     visible,
     w,
@@ -96,6 +100,8 @@ const Box: React.FC<BoxProps> = ({
             [`overflow-${overflow}`]: overflow,
             [`pe-${pointerEvents}`]: pointerEvents,
             [`text-${color}`]: color,
+            'text-wrap': textWrap,
+            'text-nowrap': textNoWrap,
             [`user-select-${userSelect}`]: userSelect,
             [`visible`]: visible,
             [`w-${w}`]: w

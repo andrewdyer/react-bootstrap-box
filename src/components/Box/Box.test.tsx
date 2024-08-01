@@ -341,4 +341,16 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('py-auto');
         expect(getBoxElement()).toHaveClass('py-sm-0');
     });
+
+    test('renders box component with text wrap property', () => {
+        renderBox({ textWrap: true });
+
+        expect(getBoxElement()).toHaveClass('text-wrap');
+    });
+
+    test('renders box component with text no wrap property', () => {
+        renderBox({ textNoWrap: true });
+
+        expect(getBoxElement()).toHaveClass('text-nowrap');
+    });
 });
