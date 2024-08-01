@@ -39,4 +39,10 @@ describe('Box', () => {
 
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('text-primary');
     });
+
+    test('renders box component with alignment', () => {
+        renderBox({ align: 'middle' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('align-middle');
+    });
 });
