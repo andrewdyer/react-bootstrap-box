@@ -16,7 +16,7 @@ export type TBoxDisplay =
     | 'flex'
     | 'inline-flex';
 
-export type TBoxFlex = 'row' | 'column' | 'row-reverse' | 'column-reverse';
+export type TBoxFlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
 export type TBoxJustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
 

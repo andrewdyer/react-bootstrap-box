@@ -84,14 +84,14 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('d-sm-block');
     });
 
-    test('renders box component with flex property', () => {
-        renderBox({ flex: 'row' });
+    test('renders box component with flex direction property', () => {
+        renderBox({ flexDirection: 'row' });
 
         expect(getBoxElement()).toHaveClass('flex-row');
     });
 
-    test('renders box component with responsive flex property', () => {
-        renderBox({ flex: { xs: 'row', sm: 'column' } });
+    test('renders box component with responsive flex direction property', () => {
+        renderBox({ flexDirection: { xs: 'row', sm: 'column' } });
 
         expect(getBoxElement()).toHaveClass('flex-row');
         expect(getBoxElement()).toHaveClass('flex-sm-column');
