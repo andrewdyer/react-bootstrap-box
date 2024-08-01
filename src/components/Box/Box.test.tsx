@@ -33,4 +33,10 @@ describe('Box', () => {
 
         expect(screen.getByText(/Hello, World!/i)).toHaveClass('bg-primary');
     });
+
+    test('renders box component with text color', () => {
+        renderBox({ text: 'primary' });
+
+        expect(screen.getByText(/Hello, World!/i)).toHaveClass('text-primary');
+    });
 });
