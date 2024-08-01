@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import type {
     TBoxAlign,
     TBoxAlignItems,
+    TBoxAlignSelf,
     TBoxDisplay,
     TBoxFlex,
     TBoxJustifyContent,
@@ -15,6 +16,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     as?: keyof React.ReactHTML;
     align?: TBoxAlign;
     alignItems?: TResponsiveValue<TBoxAlignItems>;
+    alignSelf?: TResponsiveValue<TBoxAlignSelf>;
     bg?: string;
     d?: TResponsiveValue<TBoxDisplay>;
     flex?: TResponsiveValue<TBoxFlex>;
@@ -31,6 +33,7 @@ const Box: React.FC<BoxProps> = ({
     className,
     align,
     alignItems,
+    alignSelf,
     bg,
     d,
     flex,
@@ -53,6 +56,7 @@ const Box: React.FC<BoxProps> = ({
             [`w-${w}`]: w
         },
         generateResponsiveClasses('align-items', alignItems),
+        generateResponsiveClasses('align-self', alignSelf),
         generateResponsiveClasses('d', d),
         generateResponsiveClasses('flex', flex),
         generateResponsiveClasses('justify-content', justifyContent),

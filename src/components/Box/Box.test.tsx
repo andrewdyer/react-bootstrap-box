@@ -122,4 +122,17 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('align-items-start');
         expect(getBoxElement()).toHaveClass('align-items-sm-end');
     });
+
+    test('renders box component with align self property', () => {
+        renderBox({ alignSelf: 'center' });
+
+        expect(getBoxElement()).toHaveClass('align-self-center');
+    });
+
+    test('renders box component with responsive align self property', () => {
+        renderBox({ alignSelf: { xs: 'start', sm: 'end' } });
+
+        expect(getBoxElement()).toHaveClass('align-self-start');
+        expect(getBoxElement()).toHaveClass('align-self-sm-end');
+    });
 });

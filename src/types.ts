@@ -2,6 +2,8 @@ export type TBoxAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-top' | 
 
 export type TBoxAlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 
+export type TBoxAlignSelf = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+
 export type TBoxDisplay =
     | 'none'
     | 'inline'
