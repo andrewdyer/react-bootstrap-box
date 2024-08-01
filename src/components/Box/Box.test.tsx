@@ -147,4 +147,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('pe-none');
     });
+
+    test('renders box component with opacity property', () => {
+        renderBox({ opacity: '50' });
+
+        expect(getBoxElement()).toHaveClass('opacity-50');
+    });
 });
