@@ -437,4 +437,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('border-primary');
     });
+
+    test('renders box component with border width property', () => {
+        renderBox({ borderWidth: '1' });
+
+        expect(getBoxElement()).toHaveClass('border-1');
+    });
 });
