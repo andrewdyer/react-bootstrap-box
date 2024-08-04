@@ -377,4 +377,64 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('fs-3');
     });
+
+    test('renders box component with border property', () => {
+        renderBox({ border: true });
+
+        expect(getBoxElement()).toHaveClass('border');
+    });
+
+    test('renders box component with border top property', () => {
+        renderBox({ borderTop: true });
+
+        expect(getBoxElement()).toHaveClass('border-top');
+    });
+
+    test('renders box component with border top 0 property', () => {
+        renderBox({ borderTop: 0 });
+
+        expect(getBoxElement()).toHaveClass('border-top-0');
+    });
+
+    test('renders box component with border end property', () => {
+        renderBox({ borderEnd: true });
+
+        expect(getBoxElement()).toHaveClass('border-end');
+    });
+
+    test('renders box component with border end 0 property', () => {
+        renderBox({ borderEnd: 0 });
+
+        expect(getBoxElement()).toHaveClass('border-end-0');
+    });
+
+    test('renders box component with border bottom property', () => {
+        renderBox({ borderBottom: true });
+
+        expect(getBoxElement()).toHaveClass('border-bottom');
+    });
+
+    test('renders box component with border bottom 0 property', () => {
+        renderBox({ borderBottom: 0 });
+
+        expect(getBoxElement()).toHaveClass('border-bottom-0');
+    });
+
+    test('renders box component with border start property', () => {
+        renderBox({ borderStart: true });
+
+        expect(getBoxElement()).toHaveClass('border-start');
+    });
+
+    test('renders box component with border start 0 property', () => {
+        renderBox({ borderStart: 0 });
+
+        expect(getBoxElement()).toHaveClass('border-start-0');
+    });
+
+    test('renders box component with border color property', () => {
+        renderBox({ borderColor: 'primary' });
+
+        expect(getBoxElement()).toHaveClass('border-primary');
+    });
 });

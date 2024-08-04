@@ -4,6 +4,7 @@ import type {
     TBoxAlign,
     TBoxAlignItems,
     TBoxAlignSelf,
+    TBoxBorderWidth,
     TBoxDisplay,
     TBoxFlexDirection,
     TBoxFontSize,
@@ -25,6 +26,13 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     alignItems?: TResponsiveValue<TBoxAlignItems>;
     alignSelf?: TResponsiveValue<TBoxAlignSelf>;
     bg?: string;
+    border?: boolean;
+    borderTop?: boolean | 0;
+    borderEnd?: boolean | 0;
+    borderBottom?: boolean | 0;
+    borderStart?: boolean | 0;
+    borderColor?: string;
+    borderWidth?: TBoxBorderWidth;
     color?: string;
     d?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
@@ -66,6 +74,13 @@ const Box: React.FC<BoxProps> = ({
     alignItems,
     alignSelf,
     bg,
+    border,
+    borderTop,
+    borderEnd,
+    borderBottom,
+    borderStart,
+    borderColor,
+    borderWidth,
     color,
     d,
     flexDirection,
@@ -105,6 +120,17 @@ const Box: React.FC<BoxProps> = ({
             [`align-${align}`]: align,
             [`bg-${bg}`]: bg,
             ['bg-gradient']: gradient,
+            border: border,
+            'border-top': borderTop === true,
+            'border-top-0': borderTop === 0,
+            'border-end': borderEnd === true,
+            'border-end-0': borderEnd === 0,
+            'border-bottom': borderBottom === true,
+            'border-bottom-0': borderBottom === 0,
+            'border-start': borderStart === true,
+            'border-start-0': borderStart === 0,
+            [`border-${borderColor}`]: borderColor,
+            [`border-${borderWidth}`]: borderWidth,
             [`invisible`]: invisible,
             [`h-${h}`]: h,
             [`fs-${fs}`]: fs,

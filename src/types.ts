@@ -4,6 +4,8 @@ export type TBoxAlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch'
 
 export type TBoxAlignSelf = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 
+export type TBoxBorderWidth = '1' | '2' | '3' | '4' | '5';
+
 export type TBoxDisplay =
     | 'none'
     | 'inline'
