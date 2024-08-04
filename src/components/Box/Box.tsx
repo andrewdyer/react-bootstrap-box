@@ -12,6 +12,7 @@ import type {
     TBoxOpacity,
     TBoxOverflow,
     TBoxPointerEvents,
+    TBoxRadius,
     TBoxSizing,
     TBoxSpacing,
     TBoxTextTransform,
@@ -58,6 +59,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     px?: TResponsiveValue<TBoxSpacing>;
     py?: TResponsiveValue<TBoxSpacing>;
     pointerEvents?: TBoxPointerEvents;
+    radius?: TBoxRadius;
     textWrap?: boolean;
     textNoWrap?: boolean;
     textTransform?: TBoxTextTransform;
@@ -106,6 +108,7 @@ const Box: React.FC<BoxProps> = ({
     px,
     py,
     pointerEvents,
+    radius,
     textWrap,
     textNoWrap,
     textTransform,
@@ -137,6 +140,7 @@ const Box: React.FC<BoxProps> = ({
             [`opacity-${opacity}`]: opacity,
             [`overflow-${overflow}`]: overflow,
             [`pe-${pointerEvents}`]: pointerEvents,
+            [`${radius}`]: radius,
             [`text-${color}`]: color,
             'text-wrap': textWrap,
             'text-nowrap': textNoWrap,

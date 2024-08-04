@@ -30,6 +30,15 @@ export type TBoxOverflow = 'visible' | 'hidden' | 'scroll' | 'auto';
 
 export type TBoxPointerEvents = 'none' | 'auto';
 
+export type TBoxRadius =
+    | 'rounded'
+    | 'rounded-top'
+    | 'rounded-end'
+    | 'rounded-bottom'
+    | 'rounded-start'
+    | 'rounded-circle'
+    | 'rounded-pill';
+
 export type TBoxSizing = '25' | '50' | '75' | '100' | 'auto';
 
 export type TBoxSpacing = '0' | '1' | '2' | '3' | '4' | '5' | 'auto';

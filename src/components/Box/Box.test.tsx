@@ -443,4 +443,10 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('border-1');
     });
+
+    test('renders box component with radius property', () => {
+        renderBox({ radius: 'rounded' });
+
+        expect(getBoxElement()).toHaveClass('rounded');
+    });
 });
