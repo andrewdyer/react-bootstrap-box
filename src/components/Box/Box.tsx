@@ -35,11 +35,11 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     borderColor?: string;
     borderWidth?: TBoxBorderWidth;
     color?: string;
-    d?: TResponsiveValue<TBoxDisplay>;
+    display?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
     fs?: TBoxFontSize;
     gradient?: boolean;
-    h?: TBoxSizing;
+    height?: TBoxSizing;
     invisible?: boolean;
     justifyContent?: TResponsiveValue<TBoxJustifyContent>;
     m?: TResponsiveValue<TBoxSpacing>;
@@ -65,7 +65,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     textTransform?: TBoxTextTransform;
     userSelect?: TBoxUserSelect;
     visible?: boolean;
-    w?: TBoxSizing;
+    width?: TBoxSizing;
     wordBreak?: boolean;
 }
 
@@ -84,11 +84,11 @@ const Box: React.FC<BoxProps> = ({
     borderColor,
     borderWidth,
     color,
-    d,
+    display,
     flexDirection,
     fs,
     gradient,
-    h,
+    height,
     invisible,
     justifyContent,
     m,
@@ -114,7 +114,7 @@ const Box: React.FC<BoxProps> = ({
     textTransform,
     userSelect,
     visible,
-    w,
+    width,
     wordBreak,
     ...props
 }) => {
@@ -135,7 +135,7 @@ const Box: React.FC<BoxProps> = ({
             [`border-${borderColor}`]: borderColor,
             [`border-${borderWidth}`]: borderWidth,
             [`invisible`]: invisible,
-            [`h-${h}`]: h,
+            [`h-${height}`]: height,
             [`fs-${fs}`]: fs,
             [`opacity-${opacity}`]: opacity,
             [`overflow-${overflow}`]: overflow,
@@ -146,13 +146,13 @@ const Box: React.FC<BoxProps> = ({
             'text-nowrap': textNoWrap,
             [`user-select-${userSelect}`]: userSelect,
             [`visible`]: visible,
-            [`w-${w}`]: w,
+            [`w-${width}`]: width,
             'text-break': wordBreak,
             [`text-${textTransform}`]: textTransform
         },
         generateResponsiveClasses('align-items', alignItems),
         generateResponsiveClasses('align-self', alignSelf),
-        generateResponsiveClasses('d', d),
+        generateResponsiveClasses('d', display),
         generateResponsiveClasses('flex', flexDirection),
         generateResponsiveClasses('justify-content', justifyContent),
         generateResponsiveClasses('m', m),

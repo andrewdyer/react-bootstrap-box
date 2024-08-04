@@ -66,25 +66,25 @@ describe('Box', () => {
     });
 
     test('renders box component with height', () => {
-        renderBox({ h: '50' });
+        renderBox({ height: '50' });
 
         expect(getBoxElement()).toHaveClass('h-50');
     });
 
     test('renders box component with width', () => {
-        renderBox({ w: '50' });
+        renderBox({ width: '50' });
 
         expect(getBoxElement()).toHaveClass('w-50');
     });
 
     test('renders box component with display property', () => {
-        renderBox({ d: 'block' });
+        renderBox({ display: 'block' });
 
         expect(getBoxElement()).toHaveClass('d-block');
     });
 
     test('renders box component with responsive display property', () => {
-        renderBox({ d: { xs: 'none', sm: 'block' } });
+        renderBox({ display: { xs: 'none', sm: 'block' } });
 
         expect(getBoxElement()).toHaveClass('d-none');
         expect(getBoxElement()).toHaveClass('d-sm-block');
