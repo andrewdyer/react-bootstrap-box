@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import Box from './Box';
 
 const meta = {
@@ -9,7 +8,9 @@ const meta = {
         layout: 'centered'
     },
     tags: ['autodocs'],
-    args: { onClick: fn() }
+    args: { 
+        children: 'Hello, world!'
+     }
 } satisfies Meta<typeof Box>;
 
 export default meta;
