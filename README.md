@@ -1,13 +1,47 @@
-# React Package Template
+# React Bootstrap Box
 
-A template for creating React packages.
+A versatile React component designed to apply Bootstrap utility classnames based on provided props.
+
+## License
+Licensed under MIT. Totally free for private or commercial projects.
 
 ## Getting Started
 
 To install this package use npm:
 
 ```bash
-npm install @your-scope/react-package-template
+npm install bootstrap react-bootstrap-box
+```
+
+## Usage
+
+### Including Bootstrap CSS
+
+First, ensure Bootstrap CSS is included in your project:
+
+```tsx
+// index.tsx
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+### Using the Box Component
+
+In your App.tsx, or any other component, the Box component can be used:
+
+```tsx
+// App.tsx
+import React from 'react';
+import { Box } from 'react-bootstrap-box';
+
+function App() {
+    return (
+        <Box bg="primary" color="white" m="2" p="5">
+            Hello, world!
+        </Box>
+    );
+}
+
+export default App;
 ```
 
 ## Local Development
@@ -27,7 +61,7 @@ npm install yalc -g
 First, navigate to the project directory where you want to use this package and run:
 
 ```bash
-yalc add @your-scope/react-package-template
+yalc add react-bootstrap-box
 ```
 
 This will install the package from the local Yalc store. You can now use it in the project as you would with any other npm package.
@@ -37,7 +71,7 @@ This will install the package from the local Yalc store. You can now use it in t
 After publishing changes to this package to the local Yalc store, navigate to the project directory and run:
 
 ```bash
-yalc update @your-scope/react-package-template
+yalc update react-bootstrap-box
 ```
 
 This will update the installed version of this package in the project.
