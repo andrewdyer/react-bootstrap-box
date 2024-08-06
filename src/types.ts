@@ -22,6 +22,15 @@ export type TBoxFlexDirection = 'row' | 'column' | 'row-reverse' | 'column-rever
 
 export type TBoxFontSize = '1' | '2' | '3' | '4' | '5' | '6';
 
+export type TBoxFontWeight =
+    | 'bold'
+    | 'bolder'
+    | 'semibold'
+    | 'medium'
+    | 'normal'
+    | 'light'
+    | 'lighter';
+
 export type TBoxJustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
 
 export type TBoxOpacity = '25' | '50' | '75' | '100';

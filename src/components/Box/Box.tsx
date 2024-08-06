@@ -8,6 +8,7 @@ import type {
     TBoxDisplay,
     TBoxFlexDirection,
     TBoxFontSize,
+    TBoxFontWeight,
     TBoxJustifyContent,
     TBoxOpacity,
     TBoxOverflow,
@@ -38,6 +39,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     display?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
     fs?: TBoxFontSize;
+    fontWeight?: TBoxFontWeight;
     gradient?: boolean;
     height?: TBoxSizing;
     invisible?: boolean;
@@ -87,6 +89,7 @@ const Box: React.FC<BoxProps> = ({
     display,
     flexDirection,
     fs,
+    fontWeight,
     gradient,
     height,
     invisible,
@@ -137,6 +140,7 @@ const Box: React.FC<BoxProps> = ({
             [`invisible`]: invisible,
             [`h-${height}`]: height,
             [`fs-${fs}`]: fs,
+            [`fw-${fontWeight}`]: fontWeight,
             [`opacity-${opacity}`]: opacity,
             [`overflow-${overflow}`]: overflow,
             [`pe-${pointerEvents}`]: pointerEvents,
