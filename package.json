@@ -29,6 +29,10 @@
         "typescript"
     ],
     "author": "Andrew Dyer (https://github.com/andrewdyer)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/andrewdyer/react-bootstrap-box.git"
+    },
     "license": "MIT",
     "devDependencies": {
         "@chromatic-com/storybook": "^1.6.1",
