@@ -3,6 +3,7 @@
 A versatile React component designed to apply Bootstrap utility classnames based on provided props.
 
 ## License
+
 Licensed under MIT. Totally free for private or commercial projects.
 
 ## Getting Started

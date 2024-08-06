@@ -378,6 +378,12 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('fs-3');
     });
 
+    test('renders box component with font weight property', () => {
+        renderBox({ fontWeight: 'bold' });
+
+        expect(getBoxElement()).toHaveClass('fw-bold');
+    });
+
     test('renders box component with border property', () => {
         renderBox({ border: true });
 
