@@ -16,6 +16,7 @@ import type {
     TBoxRadius,
     TBoxSizing,
     TBoxSpacing,
+    TBoxTextAlign,
     TBoxTextTransform,
     TBoxUserSelect,
     TResponsiveValue
@@ -62,6 +63,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     py?: TResponsiveValue<TBoxSpacing>;
     pointerEvents?: TBoxPointerEvents;
     radius?: TBoxRadius;
+    textAlign?: TResponsiveValue<TBoxTextAlign>;
     textWrap?: boolean;
     textNoWrap?: boolean;
     textTransform?: TBoxTextTransform;
@@ -112,6 +114,7 @@ const Box: React.FC<BoxProps> = ({
     py,
     pointerEvents,
     radius,
+    textAlign,
     textWrap,
     textNoWrap,
     textTransform,
@@ -173,6 +176,7 @@ const Box: React.FC<BoxProps> = ({
         generateResponsiveClasses('pe', pe),
         generateResponsiveClasses('px', px),
         generateResponsiveClasses('py', py),
+        generateResponsiveClasses('text', textAlign),
         className
     );
 

@@ -455,4 +455,17 @@ describe('Box', () => {
 
         expect(getBoxElement()).toHaveClass('rounded');
     });
+
+    test('renders box component with text align property', () => {
+        renderBox({ textAlign: 'center' });
+
+        expect(getBoxElement()).toHaveClass('text-center');
+    });
+
+    test('renders box component with responsive text align property', () => {
+        renderBox({ textAlign: { xs: 'end', sm: 'start' } });
+
+        expect(getBoxElement()).toHaveClass('text-end');
+        expect(getBoxElement()).toHaveClass('text-sm-start');
+    });
 });

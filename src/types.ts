@@ -52,6 +52,8 @@ export type TBoxSizing = '25' | '50' | '75' | '100' | 'auto';
 
 export type TBoxSpacing = '0' | '1' | '2' | '3' | '4' | '5' | 'auto';
 
+export type TBoxTextAlign = 'start' | 'center' | 'end';
+
 export type TBoxTextTransform = 'lowercase' | 'uppercase' | 'capitalize';
 
 export type TBoxUserSelect = 'none' | 'all' | 'auto';
