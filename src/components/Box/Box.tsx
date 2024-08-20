@@ -28,7 +28,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     align?: TBoxAlign;
     alignItems?: TResponsiveValue<TBoxAlignItems>;
     alignSelf?: TResponsiveValue<TBoxAlignSelf>;
-    bg?: string;
+    background?: string;
     border?: boolean;
     borderTop?: boolean | 0;
     borderEnd?: boolean | 0;
@@ -39,28 +39,28 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     color?: string;
     display?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
-    fs?: TBoxFontSize;
+    fontSize?: TBoxFontSize;
     fontWeight?: TBoxFontWeight;
     gradient?: boolean;
     height?: TBoxSizing;
     invisible?: boolean;
     justifyContent?: TResponsiveValue<TBoxJustifyContent>;
-    m?: TResponsiveValue<TBoxSpacing>;
-    mt?: TResponsiveValue<TBoxSpacing>;
-    mb?: TResponsiveValue<TBoxSpacing>;
-    ms?: TResponsiveValue<TBoxSpacing>;
-    me?: TResponsiveValue<TBoxSpacing>;
-    mx?: TResponsiveValue<TBoxSpacing>;
-    my?: TResponsiveValue<TBoxSpacing>;
+    margin?: TResponsiveValue<TBoxSpacing>;
+    marginTop?: TResponsiveValue<TBoxSpacing>;
+    marginBottom?: TResponsiveValue<TBoxSpacing>;
+    marginLeft?: TResponsiveValue<TBoxSpacing>;
+    marginRight?: TResponsiveValue<TBoxSpacing>;
+    marginX?: TResponsiveValue<TBoxSpacing>;
+    marginY?: TResponsiveValue<TBoxSpacing>;
     opacity?: TBoxOpacity;
     overflow?: TBoxOverflow;
-    p?: TResponsiveValue<TBoxSpacing>;
-    pt?: TResponsiveValue<TBoxSpacing>;
-    pb?: TResponsiveValue<TBoxSpacing>;
-    ps?: TResponsiveValue<TBoxSpacing>;
-    pe?: TResponsiveValue<TBoxSpacing>;
-    px?: TResponsiveValue<TBoxSpacing>;
-    py?: TResponsiveValue<TBoxSpacing>;
+    padding?: TResponsiveValue<TBoxSpacing>;
+    paddingTop?: TResponsiveValue<TBoxSpacing>;
+    paddingBottom?: TResponsiveValue<TBoxSpacing>;
+    paddingLeft?: TResponsiveValue<TBoxSpacing>;
+    paddingRight?: TResponsiveValue<TBoxSpacing>;
+    paddingX?: TResponsiveValue<TBoxSpacing>;
+    paddingY?: TResponsiveValue<TBoxSpacing>;
     pointerEvents?: TBoxPointerEvents;
     radius?: TBoxRadius;
     textAlign?: TResponsiveValue<TBoxTextAlign>;
@@ -79,7 +79,7 @@ const Box: React.FC<BoxProps> = ({
     align,
     alignItems,
     alignSelf,
-    bg,
+    background,
     border,
     borderTop,
     borderEnd,
@@ -90,28 +90,28 @@ const Box: React.FC<BoxProps> = ({
     color,
     display,
     flexDirection,
-    fs,
+    fontSize,
     fontWeight,
     gradient,
     height,
     invisible,
     justifyContent,
-    m,
-    mt,
-    mb,
-    ms,
-    me,
-    mx,
-    my,
+    margin,
+    marginTop,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginX,
+    marginY,
     opacity,
     overflow,
-    p,
-    pt,
-    pb,
-    ps,
-    pe,
-    px,
-    py,
+    padding,
+    paddingTop,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+    paddingX,
+    paddingY,
     pointerEvents,
     radius,
     textAlign,
@@ -127,7 +127,7 @@ const Box: React.FC<BoxProps> = ({
     const classNames = classnames(
         {
             [`align-${align}`]: align,
-            [`bg-${bg}`]: bg,
+            [`bg-${background}`]: background,
             ['bg-gradient']: gradient,
             border: border,
             'border-top': borderTop === true,
@@ -142,7 +142,7 @@ const Box: React.FC<BoxProps> = ({
             [`border-${borderWidth}`]: borderWidth,
             [`invisible`]: invisible,
             [`h-${height}`]: height,
-            [`fs-${fs}`]: fs,
+            [`fs-${fontSize}`]: fontSize,
             [`fw-${fontWeight}`]: fontWeight,
             [`opacity-${opacity}`]: opacity,
             [`overflow-${overflow}`]: overflow,
@@ -162,20 +162,20 @@ const Box: React.FC<BoxProps> = ({
         generateResponsiveClasses('d', display),
         generateResponsiveClasses('flex', flexDirection),
         generateResponsiveClasses('justify-content', justifyContent),
-        generateResponsiveClasses('m', m),
-        generateResponsiveClasses('mt', mt),
-        generateResponsiveClasses('mb', mb),
-        generateResponsiveClasses('ms', ms),
-        generateResponsiveClasses('me', me),
-        generateResponsiveClasses('mx', mx),
-        generateResponsiveClasses('my', my),
-        generateResponsiveClasses('p', p),
-        generateResponsiveClasses('pt', pt),
-        generateResponsiveClasses('pb', pb),
-        generateResponsiveClasses('ps', ps),
-        generateResponsiveClasses('pe', pe),
-        generateResponsiveClasses('px', px),
-        generateResponsiveClasses('py', py),
+        generateResponsiveClasses('m', margin),
+        generateResponsiveClasses('mt', marginTop),
+        generateResponsiveClasses('mb', marginBottom),
+        generateResponsiveClasses('ms', marginLeft),
+        generateResponsiveClasses('me', marginRight),
+        generateResponsiveClasses('mx', marginX),
+        generateResponsiveClasses('my', marginY),
+        generateResponsiveClasses('p', padding),
+        generateResponsiveClasses('pt', paddingTop),
+        generateResponsiveClasses('pb', paddingBottom),
+        generateResponsiveClasses('ps', paddingLeft),
+        generateResponsiveClasses('pe', paddingRight),
+        generateResponsiveClasses('px', paddingX),
+        generateResponsiveClasses('py', paddingY),
         generateResponsiveClasses('text', textAlign),
         className
     );
