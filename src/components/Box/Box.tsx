@@ -7,6 +7,7 @@ import type {
     TBoxBorderWidth,
     TBoxDisplay,
     TBoxFlexDirection,
+    TBoxFlexWrap,
     TBoxFontSize,
     TBoxFontWeight,
     TBoxJustifyContent,
@@ -39,6 +40,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     color?: string;
     display?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
+    flexWrap?: TResponsiveValue<TBoxFlexWrap>;
     fontSize?: TBoxFontSize;
     fontWeight?: TBoxFontWeight;
     gradient?: boolean;
@@ -90,6 +92,7 @@ const Box: React.FC<BoxProps> = ({
     color,
     display,
     flexDirection,
+    flexWrap,
     fontSize,
     fontWeight,
     gradient,
@@ -161,6 +164,7 @@ const Box: React.FC<BoxProps> = ({
         generateResponsiveClasses('align-self', alignSelf),
         generateResponsiveClasses('d', display),
         generateResponsiveClasses('flex', flexDirection),
+        generateResponsiveClasses('flex', flexWrap),
         generateResponsiveClasses('justify-content', justifyContent),
         generateResponsiveClasses('m', margin),
         generateResponsiveClasses('mt', marginTop),

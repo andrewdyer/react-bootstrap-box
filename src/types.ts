@@ -20,6 +20,8 @@ export type TBoxDisplay =
 
 export type TBoxFlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
+export type TBoxFlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
+
 export type TBoxFontSize = '1' | '2' | '3' | '4' | '5' | '6';
 
 export type TBoxFontWeight =
