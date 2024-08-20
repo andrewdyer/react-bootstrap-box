@@ -36,7 +36,7 @@ import { Box } from 'react-bootstrap-box';
 
 function App() {
     return (
-        <Box bg="primary" color="white" m="2" p="5">
+        <Box background="primary" color="white" margin="2" padding="5">
             Hello, world!
         </Box>
     );
