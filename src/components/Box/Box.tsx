@@ -40,6 +40,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     color?: string;
     display?: TResponsiveValue<TBoxDisplay>;
     flexDirection?: TResponsiveValue<TBoxFlexDirection>;
+    flexFill?: TResponsiveValue<boolean>;
     flexWrap?: TResponsiveValue<TBoxFlexWrap>;
     fontSize?: TBoxFontSize;
     fontWeight?: TBoxFontWeight;
@@ -92,6 +93,7 @@ const Box: React.FC<BoxProps> = ({
     color,
     display,
     flexDirection,
+    flexFill,
     flexWrap,
     fontSize,
     fontWeight,
@@ -164,6 +166,7 @@ const Box: React.FC<BoxProps> = ({
         generateResponsiveClasses('align-self', alignSelf),
         generateResponsiveClasses('d', display),
         generateResponsiveClasses('flex', flexDirection),
+        generateResponsiveClasses('flex', flexFill, 'fill'),
         generateResponsiveClasses('flex', flexWrap),
         generateResponsiveClasses('justify-content', justifyContent),
         generateResponsiveClasses('m', margin),

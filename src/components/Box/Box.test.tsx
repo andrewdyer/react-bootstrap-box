@@ -103,6 +103,19 @@ describe('Box', () => {
         expect(getBoxElement()).toHaveClass('flex-sm-column');
     });
 
+    test('renders box component with flex fill property', () => {
+        renderBox({ flexFill: true });
+
+        expect(getBoxElement()).toHaveClass('flex-fill');
+    });
+
+    test('renders box component with responsive flex fill  property', () => {
+        renderBox({ flexFill: { xs: true, sm: true } });
+
+        expect(getBoxElement()).toHaveClass('flex-fill');
+        expect(getBoxElement()).toHaveClass('flex-sm-fill');
+    });
+
     test('renders box component with flex wrap property', () => {
         renderBox({ flexWrap: 'wrap' });
 
