@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classnames from 'classnames';
 import type {
     TBoxAlign,
@@ -76,7 +77,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     wordBreak?: boolean;
 }
 
-const Box: React.FC<BoxProps> = ({
+const Box = ({
     as: Component = 'div',
     className,
     align,
@@ -128,7 +129,7 @@ const Box: React.FC<BoxProps> = ({
     width,
     wordBreak,
     ...props
-}) => {
+}: BoxProps) => {
     const classNames = classnames(
         {
             [`align-${align}`]: align,
