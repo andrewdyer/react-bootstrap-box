@@ -1,497 +1,567 @@
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { render } from '@testing-library/react';
-import { getBoxElement } from '../../utilities';
-import Box, { type BoxProps } from './Box';
-
-const renderBox = (props?: Partial<BoxProps>) => render(<Box {...props}>Hello, World!</Box>);
+import Box from './Box';
 
 describe('Box', () => {
     test('renders box component', () => {
-        renderBox();
+        render(<Box>Hello, World!</Box>);
 
-        const BoxElement = getBoxElement();
-
-        expect(BoxElement).toBeInTheDocument();
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toBeInTheDocument();
     });
 
     test('renders box component as custom element', () => {
-        renderBox({ as: 'section' });
+        render(<Box tag="section">Hello, World!</Box>);
 
-        const BoxElement = getBoxElement();
-
-        expect(BoxElement).toBeInTheDocument();
-        expect(BoxElement.tagName).toBe('SECTION');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toBeInTheDocument();
+        expect(boxElement.tagName).toBe('SECTION');
     });
 
     test('renders box component with custom class', () => {
-        renderBox({ className: 'custom-class' });
+        render(<Box className="custom-class">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('custom-class');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('custom-class');
     });
 
     test('renders box component with background color', () => {
-        renderBox({ background: 'primary' });
+        render(<Box background="primary">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('bg-primary');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('bg-primary');
     });
 
     test('renders box component with gradient background', () => {
-        renderBox({ gradient: true });
+        render(<Box gradient={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('bg-gradient');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('bg-gradient');
     });
 
     test('renders box component with text color', () => {
-        renderBox({ color: 'primary' });
+        render(<Box color="primary">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('text-primary');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('text-primary');
     });
 
     test('renders box component with alignment', () => {
-        renderBox({ align: 'middle' });
+        render(<Box align="middle">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('align-middle');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('align-middle');
     });
 
     test('renders box component as invisible', () => {
-        renderBox({ invisible: true });
+        render(<Box invisible={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('invisible');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('invisible');
     });
 
     test('renders box component as visible', () => {
-        renderBox({ visible: true });
+        render(<Box visible={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('visible');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('visible');
     });
 
     test('renders box component with height', () => {
-        renderBox({ height: '50' });
+        render(<Box height="50">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('h-50');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('h-50');
     });
 
     test('renders box component with width', () => {
-        renderBox({ width: '50' });
+        render(<Box width="50">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('w-50');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('w-50');
     });
 
     test('renders box component with display property', () => {
-        renderBox({ display: 'block' });
+        render(<Box display="block">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('d-block');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('d-block');
     });
 
     test('renders box component with responsive display property', () => {
-        renderBox({ display: { xs: 'none', sm: 'block' } });
+        render(<Box display={{ xs: 'none', sm: 'block' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('d-none');
-        expect(getBoxElement()).toHaveClass('d-sm-block');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('d-none');
+        expect(boxElement).toHaveClass('d-sm-block');
     });
 
     test('renders box component with flex direction property', () => {
-        renderBox({ flexDirection: 'row' });
+        render(<Box flexDirection="row">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('flex-row');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('flex-row');
     });
 
     test('renders box component with responsive flex direction property', () => {
-        renderBox({ flexDirection: { xs: 'row', sm: 'column' } });
+        render(<Box flexDirection={{ xs: 'row', sm: 'column' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('flex-row');
-        expect(getBoxElement()).toHaveClass('flex-sm-column');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('flex-row');
+        expect(boxElement).toHaveClass('flex-sm-column');
     });
 
     test('renders box component with flex fill property', () => {
-        renderBox({ flexFill: true });
+        render(<Box flexFill={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('flex-fill');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('flex-fill');
     });
 
     test('renders box component with responsive flex fill  property', () => {
-        renderBox({ flexFill: { xs: true, sm: true } });
+        render(<Box flexFill={{ xs: true, sm: true }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('flex-fill');
-        expect(getBoxElement()).toHaveClass('flex-sm-fill');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('flex-fill');
+        expect(boxElement).toHaveClass('flex-sm-fill');
     });
 
     test('renders box component with flex wrap property', () => {
-        renderBox({ flexWrap: 'wrap' });
+        render(<Box flexWrap="wrap">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('flex-wrap');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('flex-wrap');
     });
 
     test('renders box component with responsive flex wrap property', () => {
-        renderBox({ flexWrap: { xs: 'wrap', sm: 'nowrap' } });
+        render(<Box flexWrap={{ xs: 'wrap', sm: 'nowrap' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('flex-wrap');
-        expect(getBoxElement()).toHaveClass('flex-sm-nowrap');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('flex-wrap');
+        expect(boxElement).toHaveClass('flex-sm-nowrap');
     });
 
     test('renders box component with justify content property', () => {
-        renderBox({ justifyContent: 'center' });
+        render(<Box justifyContent="center">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('justify-content-center');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('justify-content-center');
     });
 
     test('renders box component with responsive justify content property', () => {
-        renderBox({ justifyContent: { xs: 'start', sm: 'end' } });
+        render(<Box justifyContent={{ xs: 'start', sm: 'end' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('justify-content-start');
-        expect(getBoxElement()).toHaveClass('justify-content-sm-end');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('justify-content-start');
+        expect(boxElement).toHaveClass('justify-content-sm-end');
     });
 
     test('renders box component with align items property', () => {
-        renderBox({ alignItems: 'center' });
+        render(<Box alignItems="center">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('align-items-center');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('align-items-center');
     });
 
     test('renders box component with responsive align items property', () => {
-        renderBox({ alignItems: { xs: 'start', sm: 'end' } });
+        render(<Box alignItems={{ xs: 'start', sm: 'end' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('align-items-start');
-        expect(getBoxElement()).toHaveClass('align-items-sm-end');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('align-items-start');
+        expect(boxElement).toHaveClass('align-items-sm-end');
     });
 
     test('renders box component with align self property', () => {
-        renderBox({ alignSelf: 'center' });
+        render(<Box alignSelf="center">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('align-self-center');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('align-self-center');
     });
 
     test('renders box component with responsive align self property', () => {
-        renderBox({ alignSelf: { xs: 'start', sm: 'end' } });
+        render(<Box alignSelf={{ xs: 'start', sm: 'end' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('align-self-start');
-        expect(getBoxElement()).toHaveClass('align-self-sm-end');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('align-self-start');
+        expect(boxElement).toHaveClass('align-self-sm-end');
     });
 
     test('renders box component with user select property', () => {
-        renderBox({ userSelect: 'none' });
+        render(<Box userSelect="none">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('user-select-none');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('user-select-none');
     });
 
     test('renders box component with pointer events property', () => {
-        renderBox({ pointerEvents: 'none' });
+        render(<Box pointerEvents="none">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('pe-none');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('pe-none');
     });
 
     test('renders box component with opacity property', () => {
-        renderBox({ opacity: '50' });
+        render(<Box opacity="50">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('opacity-50');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('opacity-50');
     });
 
     test('renders box component with overflow property', () => {
-        renderBox({ overflow: 'hidden' });
+        render(<Box overflow="hidden">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('overflow-hidden');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('overflow-hidden');
     });
 
     test('renders box component with margin property', () => {
-        renderBox({ margin: 'auto' });
+        render(<Box margin="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('m-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('m-auto');
     });
 
     test('renders box component with responsive margin property', () => {
-        renderBox({ margin: { xs: 'auto', sm: '0' } });
+        render(<Box margin={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('m-auto');
-        expect(getBoxElement()).toHaveClass('m-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('m-auto');
+        expect(boxElement).toHaveClass('m-sm-0');
     });
 
     test('renders box component with margin top property', () => {
-        renderBox({ marginTop: 'auto' });
+        render(<Box marginTop="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('mt-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('mt-auto');
     });
 
     test('renders box component with responsive margin top property', () => {
-        renderBox({ marginTop: { xs: 'auto', sm: '0' } });
+        render(<Box marginTop={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('mt-auto');
-        expect(getBoxElement()).toHaveClass('mt-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('mt-auto');
+        expect(boxElement).toHaveClass('mt-sm-0');
     });
 
     test('renders box component with margin bottom property', () => {
-        renderBox({ marginBottom: 'auto' });
+        render(<Box marginBottom="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('mb-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('mb-auto');
     });
 
     test('renders box component with responsive margin bottom property', () => {
-        renderBox({ marginBottom: { xs: 'auto', sm: '0' } });
+        render(<Box marginBottom={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('mb-auto');
-        expect(getBoxElement()).toHaveClass('mb-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('mb-auto');
+        expect(boxElement).toHaveClass('mb-sm-0');
     });
 
     test('renders box component with margin start property', () => {
-        renderBox({ marginLeft: 'auto' });
+        render(<Box marginLeft="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('ms-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('ms-auto');
     });
 
     test('renders box component with responsive margin start property', () => {
-        renderBox({ marginLeft: { xs: 'auto', sm: '0' } });
+        render(<Box marginLeft={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('ms-auto');
-        expect(getBoxElement()).toHaveClass('ms-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('ms-auto');
+        expect(boxElement).toHaveClass('ms-sm-0');
     });
 
     test('renders box component with margin end property', () => {
-        renderBox({ marginRight: 'auto' });
+        render(<Box marginRight="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('me-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('me-auto');
     });
 
     test('renders box component with responsive margin end property', () => {
-        renderBox({ marginRight: { xs: 'auto', sm: '0' } });
+        render(<Box marginRight={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('me-auto');
-        expect(getBoxElement()).toHaveClass('me-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('me-auto');
+        expect(boxElement).toHaveClass('me-sm-0');
     });
 
     test('renders box component with margin x property', () => {
-        renderBox({ marginX: 'auto' });
+        render(<Box marginX="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('mx-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('mx-auto');
     });
 
     test('renders box component with responsive margin x property', () => {
-        renderBox({ marginX: { xs: 'auto', sm: '0' } });
+        render(<Box marginX={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('mx-auto');
-        expect(getBoxElement()).toHaveClass('mx-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('mx-auto');
+        expect(boxElement).toHaveClass('mx-sm-0');
     });
 
     test('renders box component with margin y property', () => {
-        renderBox({ marginY: 'auto' });
+        render(<Box marginY="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('my-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('my-auto');
     });
 
     test('renders box component with responsive margin y property', () => {
-        renderBox({ marginY: { xs: 'auto', sm: '0' } });
+        render(<Box marginY={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('my-auto');
-        expect(getBoxElement()).toHaveClass('my-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('my-auto');
+        expect(boxElement).toHaveClass('my-sm-0');
     });
 
     test('renders box component with padding property', () => {
-        renderBox({ padding: 'auto' });
+        render(<Box padding="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('p-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('p-auto');
     });
 
     test('renders box component with responsive padding property', () => {
-        renderBox({ padding: { xs: 'auto', sm: '0' } });
+        render(<Box padding={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('p-auto');
-        expect(getBoxElement()).toHaveClass('p-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('p-auto');
+        expect(boxElement).toHaveClass('p-sm-0');
     });
 
     test('renders box component with padding top property', () => {
-        renderBox({ paddingTop: 'auto' });
+        render(<Box paddingTop="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('pt-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('pt-auto');
     });
 
     test('renders box component with responsive padding top property', () => {
-        renderBox({ paddingTop: { xs: 'auto', sm: '0' } });
+        render(<Box paddingTop={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('pt-auto');
-        expect(getBoxElement()).toHaveClass('pt-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('pt-auto');
+        expect(boxElement).toHaveClass('pt-sm-0');
     });
 
     test('renders box component with padding bottom property', () => {
-        renderBox({ paddingBottom: 'auto' });
+        render(<Box paddingBottom="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('pb-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('pb-auto');
     });
 
     test('renders box component with responsive padding bottom property', () => {
-        renderBox({ paddingBottom: { xs: 'auto', sm: '0' } });
+        render(<Box paddingBottom={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('pb-auto');
-        expect(getBoxElement()).toHaveClass('pb-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('pb-auto');
+        expect(boxElement).toHaveClass('pb-sm-0');
     });
 
     test('renders box component with padding start property', () => {
-        renderBox({ paddingLeft: 'auto' });
+        render(<Box paddingLeft="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('ps-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('ps-auto');
     });
 
     test('renders box component with responsive padding start property', () => {
-        renderBox({ paddingLeft: { xs: 'auto', sm: '0' } });
+        render(<Box paddingLeft={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('ps-auto');
-        expect(getBoxElement()).toHaveClass('ps-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('ps-auto');
+        expect(boxElement).toHaveClass('ps-sm-0');
     });
 
     test('renders box component with padding end property', () => {
-        renderBox({ paddingRight: 'auto' });
+        render(<Box paddingRight="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('pe-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('pe-auto');
     });
 
     test('renders box component with responsive padding end property', () => {
-        renderBox({ paddingRight: { xs: 'auto', sm: '0' } });
+        render(<Box paddingRight={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('pe-auto');
-        expect(getBoxElement()).toHaveClass('pe-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('pe-auto');
+        expect(boxElement).toHaveClass('pe-sm-0');
     });
 
     test('renders box component with padding x property', () => {
-        renderBox({ paddingX: 'auto' });
+        render(<Box paddingX="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('px-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('px-auto');
     });
 
     test('renders box component with responsive padding x property', () => {
-        renderBox({ paddingX: { xs: 'auto', sm: '0' } });
+        render(<Box paddingX={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('px-auto');
-        expect(getBoxElement()).toHaveClass('px-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('px-auto');
+        expect(boxElement).toHaveClass('px-sm-0');
     });
 
     test('renders box component with padding y property', () => {
-        renderBox({ paddingY: 'auto' });
+        render(<Box paddingY="auto">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('py-auto');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('py-auto');
     });
 
     test('renders box component with responsive padding y property', () => {
-        renderBox({ paddingY: { xs: 'auto', sm: '0' } });
+        render(<Box paddingY={{ xs: 'auto', sm: '0' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('py-auto');
-        expect(getBoxElement()).toHaveClass('py-sm-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('py-auto');
+        expect(boxElement).toHaveClass('py-sm-0');
     });
 
     test('renders box component with text wrap property', () => {
-        renderBox({ textWrap: true });
+        render(<Box textWrap={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('text-wrap');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('text-wrap');
     });
 
     test('renders box component with text no wrap property', () => {
-        renderBox({ textNoWrap: true });
+        render(<Box textNoWrap={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('text-nowrap');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('text-nowrap');
     });
 
     test('renders box component with word break property', () => {
-        renderBox({ wordBreak: true });
+        render(<Box wordBreak={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('text-break');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('text-break');
     });
 
     test('renders box component with text transform property', () => {
-        renderBox({ textTransform: 'capitalize' });
+        render(<Box textTransform="capitalize">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('text-capitalize');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('text-capitalize');
     });
 
     test('renders box component with font size property', () => {
-        renderBox({ fontSize: '3' });
+        render(<Box fontSize="3">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('fs-3');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('fs-3');
     });
 
     test('renders box component with font weight property', () => {
-        renderBox({ fontWeight: 'bold' });
+        render(<Box fontWeight="bold">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('fw-bold');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('fw-bold');
     });
 
     test('renders box component with border property', () => {
-        renderBox({ border: true });
+        render(<Box border={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border');
     });
 
     test('renders box component with border top property', () => {
-        renderBox({ borderTop: true });
+        render(<Box borderTop={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-top');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-top');
     });
 
     test('renders box component with border top 0 property', () => {
-        renderBox({ borderTop: 0 });
+        render(<Box borderTop={0}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-top-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-top-0');
     });
 
     test('renders box component with border end property', () => {
-        renderBox({ borderEnd: true });
+        render(<Box borderEnd={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-end');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-end');
     });
 
     test('renders box component with border end 0 property', () => {
-        renderBox({ borderEnd: 0 });
+        render(<Box borderEnd={0}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-end-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-end-0');
     });
 
     test('renders box component with border bottom property', () => {
-        renderBox({ borderBottom: true });
+        render(<Box borderBottom={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-bottom');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-bottom');
     });
 
     test('renders box component with border bottom 0 property', () => {
-        renderBox({ borderBottom: 0 });
+        render(<Box borderBottom={0}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-bottom-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-bottom-0');
     });
 
     test('renders box component with border start property', () => {
-        renderBox({ borderStart: true });
+        render(<Box borderStart={true}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-start');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-start');
     });
 
     test('renders box component with border start 0 property', () => {
-        renderBox({ borderStart: 0 });
+        render(<Box borderStart={0}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-start-0');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-start-0');
     });
 
     test('renders box component with border color property', () => {
-        renderBox({ borderColor: 'primary' });
+        render(<Box borderColor="primary">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-primary');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-primary');
     });
 
     test('renders box component with border width property', () => {
-        renderBox({ borderWidth: '1' });
+        render(<Box borderWidth="1">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('border-1');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('border-1');
     });
 
     test('renders box component with radius property', () => {
-        renderBox({ radius: 'rounded' });
+        render(<Box radius="rounded">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('rounded');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('rounded');
     });
 
     test('renders box component with text align property', () => {
-        renderBox({ textAlign: 'center' });
+        render(<Box textAlign="center">Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('text-center');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('text-center');
     });
 
     test('renders box component with responsive text align property', () => {
-        renderBox({ textAlign: { xs: 'end', sm: 'start' } });
+        render(<Box textAlign={{ xs: 'end', sm: 'start' }}>Hello, World!</Box>);
 
-        expect(getBoxElement()).toHaveClass('text-end');
-        expect(getBoxElement()).toHaveClass('text-sm-start');
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('text-end');
+        expect(boxElement).toHaveClass('text-sm-start');
     });
 });

@@ -1,114 +1,37 @@
 import React from 'react';
 
 import classnames from 'classnames';
-import type {
-    TBoxAlign,
-    TBoxAlignItems,
-    TBoxAlignSelf,
-    TBoxBorderWidth,
-    TBoxDisplay,
-    TBoxFlexDirection,
-    TBoxFlexWrap,
-    TBoxFontSize,
-    TBoxFontWeight,
-    TBoxJustifyContent,
-    TBoxOpacity,
-    TBoxOverflow,
-    TBoxPointerEvents,
-    TBoxRadius,
-    TBoxSizing,
-    TBoxSpacing,
-    TBoxTextAlign,
-    TBoxTextTransform,
-    TBoxUserSelect,
-    TResponsiveValue
-} from '../../types';
-import { generateResponsiveClasses } from '../../utilities';
 
-export interface BorderProps {
-    border?: boolean;
-    borderTop?: boolean | 0;
-    borderEnd?: boolean | 0;
-    borderBottom?: boolean | 0;
-    borderStart?: boolean | 0;
-    borderColor?: string;
-    borderWidth?: TBoxBorderWidth;
-}
+import {
+    generateBorderClassNames,
+    generateFlexboxClassNames,
+    generateMarginClassNames,
+    generatePaddingClassNames,
+    generateTypographyClassNames,
+    generateVisualClassNames,
+    type BorderProps,
+    type FlexboxProps,
+    type MarginProps,
+    type PaddingProps,
+    type TypographyProps,
+    type VisualProps
+} from '../../utilities';
 
-export interface MarginProps {
-    margin?: TResponsiveValue<TBoxSpacing>;
-    marginTop?: TResponsiveValue<TBoxSpacing>;
-    marginBottom?: TResponsiveValue<TBoxSpacing>;
-    marginLeft?: TResponsiveValue<TBoxSpacing>;
-    marginRight?: TResponsiveValue<TBoxSpacing>;
-    marginX?: TResponsiveValue<TBoxSpacing>;
-    marginY?: TResponsiveValue<TBoxSpacing>;
-}
+export type BoxProps<T extends React.ElementType = 'div'> = {
+    tag?: T;
+} & React.ComponentPropsWithoutRef<T> &
+    BorderProps &
+    MarginProps &
+    PaddingProps &
+    FlexboxProps &
+    TypographyProps &
+    VisualProps;
 
-export interface PaddingProps {
-    padding?: TResponsiveValue<TBoxSpacing>;
-    paddingTop?: TResponsiveValue<TBoxSpacing>;
-    paddingBottom?: TResponsiveValue<TBoxSpacing>;
-    paddingLeft?: TResponsiveValue<TBoxSpacing>;
-    paddingRight?: TResponsiveValue<TBoxSpacing>;
-    paddingX?: TResponsiveValue<TBoxSpacing>;
-    paddingY?: TResponsiveValue<TBoxSpacing>;
-}
-
-export interface FlexboxProps {
-    alignItems?: TResponsiveValue<TBoxAlignItems>;
-    alignSelf?: TResponsiveValue<TBoxAlignSelf>;
-    display?: TResponsiveValue<TBoxDisplay>;
-    flexDirection?: TResponsiveValue<TBoxFlexDirection>;
-    flexFill?: TResponsiveValue<boolean>;
-    flexWrap?: TResponsiveValue<TBoxFlexWrap>;
-    justifyContent?: TResponsiveValue<TBoxJustifyContent>;
-}
-
-export interface TypographyProps {
-    fontSize?: TBoxFontSize;
-    fontWeight?: TBoxFontWeight;
-    textAlign?: TResponsiveValue<TBoxTextAlign>;
-    textWrap?: boolean;
-    textNoWrap?: boolean;
-    textTransform?: TBoxTextTransform;
-    wordBreak?: boolean;
-}
-
-export interface VisualProps {
-    align?: TBoxAlign;
-    background?: string;
-    color?: string;
-    gradient?: boolean;
-    height?: TBoxSizing;
-    invisible?: boolean;
-    opacity?: TBoxOpacity;
-    overflow?: TBoxOverflow;
-    pointerEvents?: TBoxPointerEvents;
-    radius?: TBoxRadius;
-    userSelect?: TBoxUserSelect;
-    visible?: boolean;
-    width?: TBoxSizing;
-}
-
-export interface BoxProps
-    extends BorderProps,
-        MarginProps,
-        PaddingProps,
-        FlexboxProps,
-        TypographyProps,
-        VisualProps,
-        React.HTMLAttributes<HTMLElement> {
-    as?: keyof React.ReactHTML;
-}
-
-const Box = ({
-    as: Component = 'div',
+const Box = <T extends React.ElementType = 'div'>({
+    tag,
     className,
-    align,
-    alignItems,
-    alignSelf,
-    background,
+
+    // Border properties
     border,
     borderTop,
     borderEnd,
@@ -116,17 +39,17 @@ const Box = ({
     borderStart,
     borderColor,
     borderWidth,
-    color,
+
+    // Flexbox properties
+    alignItems,
+    alignSelf,
     display,
     flexDirection,
     flexFill,
     flexWrap,
-    fontSize,
-    fontWeight,
-    gradient,
-    height,
-    invisible,
     justifyContent,
+
+    // Margin properties
     margin,
     marginTop,
     marginBottom,
@@ -134,8 +57,8 @@ const Box = ({
     marginRight,
     marginX,
     marginY,
-    opacity,
-    overflow,
+
+    // Padding properties
     padding,
     paddingTop,
     paddingBottom,
@@ -143,77 +66,112 @@ const Box = ({
     paddingRight,
     paddingX,
     paddingY,
-    pointerEvents,
-    radius,
+
+    // Typography properties
+    fontSize,
+    fontWeight,
     textAlign,
     textWrap,
     textNoWrap,
     textTransform,
+    wordBreak,
+
+    // Visual properties
+    align,
+    background,
+    color,
+    gradient,
+    height,
+    invisible,
+    opacity,
+    overflow,
+    pointerEvents,
+    radius,
     userSelect,
     visible,
     width,
-    wordBreak,
+
     ...props
-}: BoxProps) => {
+}: BoxProps<T>) => {
+    const Tag = tag || 'div';
+
+    const borderClassNames: string = generateBorderClassNames({
+        border,
+        borderTop,
+        borderEnd,
+        borderBottom,
+        borderStart,
+        borderColor,
+        borderWidth
+    });
+
+    const flexboxClassNames: string = generateFlexboxClassNames({
+        alignItems,
+        alignSelf,
+        display,
+        flexDirection,
+        flexFill,
+        flexWrap,
+        justifyContent
+    });
+
+    const marginClassNames: string = generateMarginClassNames({
+        margin,
+        marginTop,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginX,
+        marginY
+    });
+
+    const paddingClassNames: string = generatePaddingClassNames({
+        padding,
+        paddingTop,
+        paddingBottom,
+        paddingLeft,
+        paddingRight,
+        paddingX,
+        paddingY
+    });
+
+    const typographyClassNames = generateTypographyClassNames({
+        fontSize,
+        fontWeight,
+        textAlign,
+        textWrap,
+        textNoWrap,
+        textTransform,
+        wordBreak
+    });
+
+    const visualClassNames = generateVisualClassNames({
+        align,
+        background,
+        color,
+        gradient,
+        height,
+        invisible,
+        opacity,
+        overflow,
+        pointerEvents,
+        radius,
+        userSelect,
+        visible,
+        width
+    });
+
     const classNames = classnames(
-        {
-            [`align-${align}`]: align,
-            [`bg-${background}`]: background,
-            ['bg-gradient']: gradient,
-            border: border,
-            'border-top': borderTop === true,
-            'border-top-0': borderTop === 0,
-            'border-end': borderEnd === true,
-            'border-end-0': borderEnd === 0,
-            'border-bottom': borderBottom === true,
-            'border-bottom-0': borderBottom === 0,
-            'border-start': borderStart === true,
-            'border-start-0': borderStart === 0,
-            [`border-${borderColor}`]: borderColor,
-            [`border-${borderWidth}`]: borderWidth,
-            [`invisible`]: invisible,
-            [`h-${height}`]: height,
-            [`fs-${fontSize}`]: fontSize,
-            [`fw-${fontWeight}`]: fontWeight,
-            [`opacity-${opacity}`]: opacity,
-            [`overflow-${overflow}`]: overflow,
-            [`pe-${pointerEvents}`]: pointerEvents,
-            [`${radius}`]: radius,
-            [`text-${color}`]: color,
-            'text-wrap': textWrap,
-            'text-nowrap': textNoWrap,
-            [`user-select-${userSelect}`]: userSelect,
-            [`visible`]: visible,
-            [`w-${width}`]: width,
-            'text-break': wordBreak,
-            [`text-${textTransform}`]: textTransform
-        },
-        generateResponsiveClasses('align-items', alignItems),
-        generateResponsiveClasses('align-self', alignSelf),
-        generateResponsiveClasses('d', display),
-        generateResponsiveClasses('flex', flexDirection),
-        generateResponsiveClasses('flex', flexFill, 'fill'),
-        generateResponsiveClasses('flex', flexWrap),
-        generateResponsiveClasses('justify-content', justifyContent),
-        generateResponsiveClasses('m', margin),
-        generateResponsiveClasses('mt', marginTop),
-        generateResponsiveClasses('mb', marginBottom),
-        generateResponsiveClasses('ms', marginLeft),
-        generateResponsiveClasses('me', marginRight),
-        generateResponsiveClasses('mx', marginX),
-        generateResponsiveClasses('my', marginY),
-        generateResponsiveClasses('p', padding),
-        generateResponsiveClasses('pt', paddingTop),
-        generateResponsiveClasses('pb', paddingBottom),
-        generateResponsiveClasses('ps', paddingLeft),
-        generateResponsiveClasses('pe', paddingRight),
-        generateResponsiveClasses('px', paddingX),
-        generateResponsiveClasses('py', paddingY),
-        generateResponsiveClasses('text', textAlign),
+        borderClassNames,
+        flexboxClassNames,
+        marginClassNames,
+        paddingClassNames,
+        typographyClassNames,
+        visualClassNames,
         className
     );
 
-    return <Component className={classNames} {...props} />;
+    return <Tag className={classNames} {...props} />;
 };
 
 export default Box;
