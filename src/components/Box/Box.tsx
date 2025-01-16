@@ -25,12 +25,7 @@ import type {
 } from '../../types';
 import { generateResponsiveClasses } from '../../utilities';
 
-export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
-    as?: keyof React.ReactHTML;
-    align?: TBoxAlign;
-    alignItems?: TResponsiveValue<TBoxAlignItems>;
-    alignSelf?: TResponsiveValue<TBoxAlignSelf>;
-    background?: string;
+export interface BorderProps {
     border?: boolean;
     borderTop?: boolean | 0;
     borderEnd?: boolean | 0;
@@ -38,17 +33,9 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     borderStart?: boolean | 0;
     borderColor?: string;
     borderWidth?: TBoxBorderWidth;
-    color?: string;
-    display?: TResponsiveValue<TBoxDisplay>;
-    flexDirection?: TResponsiveValue<TBoxFlexDirection>;
-    flexFill?: TResponsiveValue<boolean>;
-    flexWrap?: TResponsiveValue<TBoxFlexWrap>;
-    fontSize?: TBoxFontSize;
-    fontWeight?: TBoxFontWeight;
-    gradient?: boolean;
-    height?: TBoxSizing;
-    invisible?: boolean;
-    justifyContent?: TResponsiveValue<TBoxJustifyContent>;
+}
+
+export interface MarginProps {
     margin?: TResponsiveValue<TBoxSpacing>;
     marginTop?: TResponsiveValue<TBoxSpacing>;
     marginBottom?: TResponsiveValue<TBoxSpacing>;
@@ -56,8 +43,9 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     marginRight?: TResponsiveValue<TBoxSpacing>;
     marginX?: TResponsiveValue<TBoxSpacing>;
     marginY?: TResponsiveValue<TBoxSpacing>;
-    opacity?: TBoxOpacity;
-    overflow?: TBoxOverflow;
+}
+
+export interface PaddingProps {
     padding?: TResponsiveValue<TBoxSpacing>;
     paddingTop?: TResponsiveValue<TBoxSpacing>;
     paddingBottom?: TResponsiveValue<TBoxSpacing>;
@@ -65,16 +53,53 @@ export interface BoxProps extends React.HTMLAttributes<HTMLElement> {
     paddingRight?: TResponsiveValue<TBoxSpacing>;
     paddingX?: TResponsiveValue<TBoxSpacing>;
     paddingY?: TResponsiveValue<TBoxSpacing>;
-    pointerEvents?: TBoxPointerEvents;
-    radius?: TBoxRadius;
+}
+
+export interface FlexboxProps {
+    alignItems?: TResponsiveValue<TBoxAlignItems>;
+    alignSelf?: TResponsiveValue<TBoxAlignSelf>;
+    display?: TResponsiveValue<TBoxDisplay>;
+    flexDirection?: TResponsiveValue<TBoxFlexDirection>;
+    flexFill?: TResponsiveValue<boolean>;
+    flexWrap?: TResponsiveValue<TBoxFlexWrap>;
+    justifyContent?: TResponsiveValue<TBoxJustifyContent>;
+}
+
+export interface TypographyProps {
+    fontSize?: TBoxFontSize;
+    fontWeight?: TBoxFontWeight;
     textAlign?: TResponsiveValue<TBoxTextAlign>;
     textWrap?: boolean;
     textNoWrap?: boolean;
     textTransform?: TBoxTextTransform;
+    wordBreak?: boolean;
+}
+
+export interface VisualProps {
+    align?: TBoxAlign;
+    background?: string;
+    color?: string;
+    gradient?: boolean;
+    height?: TBoxSizing;
+    invisible?: boolean;
+    opacity?: TBoxOpacity;
+    overflow?: TBoxOverflow;
+    pointerEvents?: TBoxPointerEvents;
+    radius?: TBoxRadius;
     userSelect?: TBoxUserSelect;
     visible?: boolean;
     width?: TBoxSizing;
-    wordBreak?: boolean;
+}
+
+export interface BoxProps
+    extends BorderProps,
+        MarginProps,
+        PaddingProps,
+        FlexboxProps,
+        TypographyProps,
+        VisualProps,
+        React.HTMLAttributes<HTMLElement> {
+    as?: keyof React.ReactHTML;
 }
 
 const Box = ({
