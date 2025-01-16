@@ -10,7 +10,7 @@ Licensed under MIT. Totally free for private or commercial projects.
 
 ## ✨ Introduction
 
-The **React + Bootstrap Box** component simplifies applying Bootstrap utility classes in React. With an intuitive prop-driven API, it enables you to quickly and efficiently manage styles like borders, spacing, flexbox, typography, and more—all without manually writing classnames.
+The **React + Bootstrap Box** component simplifies applying Bootstrap utility classes in React. With an intuitive prop-driven API, it enables you to quickly and efficiently manage styles like borders, spacing, flexbox, typography, and more - all without manually writing classnames.
 
 ## 🚀 Getting Started
 
@@ -52,4 +52,4 @@ export default App;
 
 ## 📚 Learn More
 
-Discover the full potential of the **React + Bootstrap Box** component by exploring its [Storybook documentation](https://box.andrewdyer.rocks/), where you’ll find live examples, interactive demos, and detailed use cases for every prop.
+Discover the full potential of the **React + Bootstrap Box** component by exploring its [Storybook documentation](https://box.andrewdyer.rocks/), where you'll find live examples, interactive demos, and detailed use cases for every prop.
