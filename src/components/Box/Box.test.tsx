@@ -1,6 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+
+import { render, screen } from '@testing-library/react';
+
 import { getBoxElement } from '../../utilities';
+
 import Box, { type BoxProps } from './Box';
 
 const renderBox = (props?: Partial<BoxProps>) => render(<Box {...props}>Hello, World!</Box>);
@@ -15,9 +18,9 @@ describe('Box', () => {
     });
 
     test('renders box component as custom element', () => {
-        renderBox({ as: 'section' });
+        render(<Box tag="section">Hello, World!</Box>);
 
-        const BoxElement = getBoxElement();
+        const BoxElement = screen.getByText(/Hello, World!/i);
 
         expect(BoxElement).toBeInTheDocument();
         expect(BoxElement.tagName).toBe('SECTION');

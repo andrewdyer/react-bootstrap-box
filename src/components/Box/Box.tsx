@@ -17,19 +17,18 @@ import {
     type VisualProps
 } from '../../utilities';
 
-export interface BoxProps
-    extends BorderProps,
-        MarginProps,
-        PaddingProps,
-        FlexboxProps,
-        TypographyProps,
-        VisualProps,
-        React.HTMLAttributes<HTMLElement> {
-    as?: keyof React.ReactHTML;
-}
+export type BoxProps<T extends React.ElementType = 'div'> = {
+    tag?: T;
+} & React.ComponentPropsWithoutRef<T> &
+    BorderProps &
+    MarginProps &
+    PaddingProps &
+    FlexboxProps &
+    TypographyProps &
+    VisualProps;
 
-const Box = ({
-    as: Component = 'div',
+const Box = <T extends React.ElementType = 'div'>({
+    tag,
     className,
 
     // Border properties
@@ -93,7 +92,9 @@ const Box = ({
     width,
 
     ...props
-}: BoxProps) => {
+}: BoxProps<T>) => {
+    const Tag = tag || 'div';
+
     const borderClassNames: string = generateBorderClassNames({
         border,
         borderTop,
@@ -170,7 +171,7 @@ const Box = ({
         className
     );
 
-    return <Component className={classNames} {...props} />;
+    return <Tag className={classNames} {...props} />;
 };
 
 export default Box;
