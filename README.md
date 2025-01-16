@@ -2,7 +2,7 @@
 
 # 📦 React + Bootstrap Box
 
-A versatile React component designed to apply Bootstrap utility classnames based on provided props.
+A versatile [React](https://react.dev/) component designed to apply [Bootstrap](https://getbootstrap.com/) utility classnames based on provided props.
 
 ## 📄 License
 
