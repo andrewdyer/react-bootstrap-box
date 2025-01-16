@@ -1,14 +1,14 @@
 ![React + Bootstrap Box](https://raw.githubusercontent.com/andrewdyer/andrewdyer/refs/heads/main/assets/images/covers/react-bootstrap-box.png)
 
-# React + Bootstrap Box
+# 📦 React + Bootstrap Box
 
 A versatile React component designed to apply Bootstrap utility classnames based on provided props.
 
-## License
+## 📄 License
 
 Licensed under MIT. Totally free for private or commercial projects.
 
-## Getting Started
+## 🚀 Getting Started
 
 To install this package use npm:
 
@@ -16,7 +16,7 @@ To install this package use npm:
 npm install bootstrap react-bootstrap-box
 ```
 
-## Usage
+## 📖 Usage
 
 ### Including Bootstrap CSS
 
