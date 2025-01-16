@@ -33,14 +33,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ### Using the Box Component
 
-In your App.tsx, or any other component, the Box component can be used:
+In your `App.tsx`, or any other component, the `Box` component can be used:
 
 ```tsx
 import React from 'react';
 
 import { Box } from 'react-bootstrap-box';
 
-const MyComponent = () => {
+const App = () => {
     return (
         <Box background="primary" color="white" margin="2" padding="5">
             Hello, world!
@@ -48,7 +48,7 @@ const MyComponent = () => {
     );
 };
 
-export default MyComponent;
+export default App;
 ```
 
 ### 📚 Learn More
