@@ -2,6 +2,44 @@ import { Meta } from '@storybook/blocks';
 
 <Meta title="Introduction" />
 
-# React Bootstrap Box
+## ✨ Introduction
 
-A versatile React component designed to apply Bootstrap utility classnames based on provided props.
+The **React + Bootstrap Box** component simplifies applying Bootstrap utility classes in React. With an intuitive prop-driven API, it enables you to quickly and efficiently manage styles like borders, spacing, flexbox, typography, and more - all without manually writing classnames.
+
+## 🚀 Getting Started
+
+To install this package use npm:
+
+```bash
+npm install bootstrap react-bootstrap-box
+```
+
+## 📖 Usage
+
+### Including Bootstrap CSS
+
+First, ensure Bootstrap CSS is included in your project:
+
+```tsx
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+### Using the Box Component
+
+In your `App.tsx`, or any other component, the `Box` component can be used:
+
+```tsx
+import React from 'react';
+
+import { Box } from 'react-bootstrap-box';
+
+const App = () => {
+    return (
+        <Box background="primary" color="white" margin="2" padding="5">
+            Hello, world!
+        </Box>
+    );
+};
+
+export default App;
+```
