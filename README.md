@@ -27,7 +27,6 @@ npm install bootstrap react-bootstrap-box
 First, ensure Bootstrap CSS is included in your project:
 
 ```tsx
-// index.tsx
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
