@@ -8,6 +8,10 @@ A versatile React component designed to apply Bootstrap utility classnames based
 
 Licensed under MIT. Totally free for private or commercial projects.
 
+## ✨ Introduction
+
+The React + Bootstrap Box component simplifies the process of applying Bootstrap utility classes to your React components. By using props, you can easily manage styles such as borders, margins, paddings, flexbox, typography, and visual properties without writing custom CSS. This component is highly customizable and reusable, making it a great addition to any React project.
+
 ## 🚀 Getting Started
 
 To install this package use npm:
