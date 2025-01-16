@@ -50,3 +50,7 @@ const MyComponent = () => {
 
 export default MyComponent;
 ```
+
+### 📚 Learn More
+
+Discover the full potential of the **React + Bootstrap Box** component by exploring its [Storybook documentation](https://box.andrewdyer.rocks/), where you’ll find live examples, interactive demos, and detailed use cases for every prop.
