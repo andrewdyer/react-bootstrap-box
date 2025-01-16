@@ -564,4 +564,11 @@ describe('Box', () => {
         expect(boxElement).toHaveClass('text-end');
         expect(boxElement).toHaveClass('text-sm-start');
     });
+
+    test('renders box component with small property', () => {
+        render(<Box small>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('small');
+    });
 });

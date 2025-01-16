@@ -87,6 +87,7 @@ const Box = <T extends React.ElementType = 'div'>({
     overflow,
     pointerEvents,
     radius,
+    small,
     userSelect,
     visible,
     width,
@@ -156,6 +157,7 @@ const Box = <T extends React.ElementType = 'div'>({
         overflow,
         pointerEvents,
         radius,
+        small,
         userSelect,
         visible,
         width

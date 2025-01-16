@@ -21,6 +21,7 @@ export interface VisualProps {
     overflow?: TBoxOverflow;
     pointerEvents?: TBoxPointerEvents;
     radius?: TBoxRadius;
+    small?: boolean;
     userSelect?: TBoxUserSelect;
     visible?: boolean;
     width?: TBoxSizing;
@@ -37,6 +38,7 @@ const generateVisualClassNames = ({
     overflow,
     pointerEvents,
     radius,
+    small,
     userSelect,
     visible,
     width
@@ -51,6 +53,7 @@ const generateVisualClassNames = ({
         [`overflow-${overflow}`]: overflow,
         [`pe-${pointerEvents}`]: pointerEvents,
         [`${radius}`]: radius,
+        small: small,
         [`text-${color}`]: color,
         [`user-select-${userSelect}`]: userSelect,
         [`visible`]: visible,

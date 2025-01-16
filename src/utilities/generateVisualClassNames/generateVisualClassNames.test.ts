@@ -79,6 +79,12 @@ describe('generateVisualClassNames', () => {
         expect(classNames).toBe('w-50');
     });
 
+    test('should generate "small" class when small is true', () => {
+        const classNames = generateVisualClassNames({ small: true });
+
+        expect(classNames).toBe('small');
+    });
+
     test('should return an empty string when no properties are provided', () => {
         const classNames = generateVisualClassNames({});
 
