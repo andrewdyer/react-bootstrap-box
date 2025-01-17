@@ -35,6 +35,8 @@ export type TBoxFontWeight =
 
 export type TBoxJustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
 
+export type TBoxLineHeight = '1' | 'sm' | 'base' | 'lg';
+
 export type TBoxOpacity = '25' | '50' | '75' | '100';
 
 export type TBoxOverflow = 'visible' | 'hidden' | 'scroll' | 'auto';

@@ -70,6 +70,7 @@ const Box = <T extends React.ElementType = 'div'>({
     // Typography properties
     fontSize,
     fontWeight,
+    lineHeight,
     textAlign,
     textWrap,
     textNoWrap,
@@ -139,6 +140,7 @@ const Box = <T extends React.ElementType = 'div'>({
     const typographyClassNames = generateTypographyClassNames({
         fontSize,
         fontWeight,
+        lineHeight,
         textAlign,
         textWrap,
         textNoWrap,

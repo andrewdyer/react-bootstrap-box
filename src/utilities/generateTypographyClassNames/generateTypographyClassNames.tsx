@@ -4,6 +4,7 @@ import { generateResponsiveClasses } from '..';
 import type {
     TBoxFontSize,
     TBoxFontWeight,
+    TBoxLineHeight,
     TBoxTextAlign,
     TBoxTextTransform,
     TResponsiveValue
@@ -12,6 +13,7 @@ import type {
 export interface TypographyProps {
     fontSize?: TBoxFontSize;
     fontWeight?: TBoxFontWeight;
+    lineHeight?: TBoxLineHeight;
     textAlign?: TResponsiveValue<TBoxTextAlign>;
     textWrap?: boolean;
     textNoWrap?: boolean;
@@ -22,6 +24,7 @@ export interface TypographyProps {
 const generateTypographyClassNames = ({
     fontSize,
     fontWeight,
+    lineHeight,
     textAlign,
     textWrap,
     textNoWrap,
@@ -32,6 +35,7 @@ const generateTypographyClassNames = ({
         {
             [`fs-${fontSize}`]: fontSize,
             [`fw-${fontWeight}`]: fontWeight,
+            [`lh-${lineHeight}`]: lineHeight,
             'text-wrap': textWrap,
             'text-nowrap': textNoWrap,
             [`text-${textTransform}`]: textTransform,

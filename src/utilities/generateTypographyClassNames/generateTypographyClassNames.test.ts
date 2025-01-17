@@ -13,6 +13,30 @@ describe('generateTypographyClassNames', () => {
         expect(classNames).toBe('fw-bold');
     });
 
+    test('should generate "lh-1" class when lineHeight is provided as "1"', () => {
+        const classNames = generateTypographyClassNames({ lineHeight: '1' });
+
+        expect(classNames).toBe('lh-1');
+    });
+
+    test('should generate "lh-sm" class when lineHeight is provided as "sm"', () => {
+        const classNames = generateTypographyClassNames({ lineHeight: 'sm' });
+
+        expect(classNames).toBe('lh-sm');
+    });
+
+    test('should generate "lh-base" class when lineHeight is provided as "base"', () => {
+        const classNames = generateTypographyClassNames({ lineHeight: 'base' });
+
+        expect(classNames).toBe('lh-base');
+    });
+
+    test('should generate "lh-lg" class when lineHeight is provided as "lg"', () => {
+        const classNames = generateTypographyClassNames({ lineHeight: 'lg' });
+
+        expect(classNames).toBe('lh-lg');
+    });
+
     test('should generate responsive textAlign classes when responsive textAlign is provided', () => {
         const classNames = generateTypographyClassNames({
             textAlign: { xs: 'center', sm: 'start' }
