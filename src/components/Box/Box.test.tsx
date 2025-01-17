@@ -571,4 +571,32 @@ describe('Box', () => {
         const boxElement = screen.getByText(/Hello, World!/i);
         expect(boxElement).toHaveClass('small');
     });
+
+    test('should render with the "lh-1" class when lineHeight is provided as "1"', () => {
+        render(<Box lineHeight="1">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('lh-1');
+    });
+
+    test('should render with the "lh-sm" class when lineHeight is provided as "sm"', () => {
+        render(<Box lineHeight="sm">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('lh-sm');
+    });
+
+    test('should render with the "lh-base" class when lineHeight is provided as "base"', () => {
+        render(<Box lineHeight="base">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('lh-base');
+    });
+
+    test('should render with the "lh-lg" class when lineHeight is provided as "lg"', () => {
+        render(<Box lineHeight="lg">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('lh-lg');
+    });
 });

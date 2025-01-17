@@ -8,9 +8,9 @@ const meta = {
         layout: 'centered'
     },
     tags: ['autodocs'],
-    args: { 
+    args: {
         children: 'Hello, world!'
-     }
+    }
 } satisfies Meta<typeof Box>;
 
 export default meta;
