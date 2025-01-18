@@ -48,6 +48,7 @@ const Box = <T extends React.ElementType = 'div'>({
     flexFill,
     flexWrap,
     justifyContent,
+    order,
 
     // Margin properties
     margin,
@@ -114,7 +115,8 @@ const Box = <T extends React.ElementType = 'div'>({
         flexDirection,
         flexFill,
         flexWrap,
-        justifyContent
+        justifyContent,
+        order
     });
 
     const marginClassNames: string = generateMarginClassNames({
