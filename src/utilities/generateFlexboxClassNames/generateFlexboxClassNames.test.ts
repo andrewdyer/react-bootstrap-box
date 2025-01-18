@@ -89,6 +89,50 @@ describe('generateFlexboxClassNames', () => {
         expect(classNames).toBe('justify-content-start justify-content-sm-end');
     });
 
+    test('should generate "order-0" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: '0' });
+
+        expect(classNames).toBe('order-0');
+    });
+
+    test('should generate "order-1" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: '1' });
+
+        expect(classNames).toBe('order-1');
+    });
+
+    test('should generate "order-2" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: '2' });
+
+        expect(classNames).toBe('order-2');
+    });
+
+    test('should generate "order-3" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: '3' });
+
+        expect(classNames).toBe('order-3');
+    });
+
+    test('should generate "order-4" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: '4' });
+
+        expect(classNames).toBe('order-4');
+    });
+
+    test('should generate "order-5" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: '5' });
+
+        expect(classNames).toBe('order-5');
+    });
+
+    test('should generate responsive "order" classes when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({
+            order: { sm: '0', md: '1', lg: '2', xl: '3', xxl: '4' }
+        });
+
+        expect(classNames).toBe('order-sm-0 order-md-1 order-lg-2 order-xl-3 order-xxl-4');
+    });
+
     test('should return an empty string when no properties are provided', () => {
         const classNames = generateFlexboxClassNames({});
 
