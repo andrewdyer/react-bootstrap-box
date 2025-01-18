@@ -599,4 +599,146 @@ describe('Box', () => {
         const boxElement = screen.getByText(/Hello, World!/i);
         expect(boxElement).toHaveClass('lh-lg');
     });
+
+    test('renders box component with order-0 class', () => {
+        render(<Box order="0">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-0');
+    });
+
+    test('renders box component with order-1 class', () => {
+        render(<Box order="1">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-1');
+    });
+
+    test('renders box component with order-2 class', () => {
+        render(<Box order="2">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-2');
+    });
+
+    test('renders box component with order-3 class', () => {
+        render(<Box order="3">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-3');
+    });
+
+    test('renders box component with order-4 class', () => {
+        render(<Box order="4">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-4');
+    });
+
+    test('renders box component with order-5 class', () => {
+        render(<Box order="5">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-5');
+    });
+
+    test('renders box component with responsive order classes', () => {
+        render(
+            <Box order={{ xs: '0', sm: '1', md: '2', lg: '3', xl: '4', xxl: '5' }}>
+                Hello, World!
+            </Box>
+        );
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-0');
+        expect(boxElement).toHaveClass('order-sm-1');
+        expect(boxElement).toHaveClass('order-md-2');
+        expect(boxElement).toHaveClass('order-lg-3');
+        expect(boxElement).toHaveClass('order-xl-4');
+        expect(boxElement).toHaveClass('order-xxl-5');
+    });
+
+    test('renders box component with order-first class', () => {
+        render(<Box order="first">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-first');
+    });
+
+    test('renders box component with order-last class', () => {
+        render(<Box order="last">Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-last');
+    });
+
+    test('renders box component with responsive order-first class', () => {
+        render(<Box order={{ sm: 'first' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-sm-first');
+    });
+
+    test('renders box component with responsive order-last class', () => {
+        render(<Box order={{ sm: 'last' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-sm-last');
+    });
+
+    test('renders box component with responsive order-first class', () => {
+        render(<Box order={{ md: 'first' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-md-first');
+    });
+
+    test('renders box component with responsive order-last class', () => {
+        render(<Box order={{ md: 'last' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-md-last');
+    });
+
+    test('renders box component with responsive order-first class', () => {
+        render(<Box order={{ lg: 'first' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-lg-first');
+    });
+
+    test('renders box component with responsive order-last class', () => {
+        render(<Box order={{ lg: 'last' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-lg-last');
+    });
+
+    test('renders box component with responsive order-first class', () => {
+        render(<Box order={{ xl: 'first' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-xl-first');
+    });
+
+    test('renders box component with responsive order-last class', () => {
+        render(<Box order={{ xl: 'last' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-xl-last');
+    });
+
+    test('renders box component with responsive order-first class', () => {
+        render(<Box order={{ xxl: 'first' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-xxl-first');
+    });
+
+    test('renders box component with responsive order-last class', () => {
+        render(<Box order={{ xxl: 'last' }}>Hello, World!</Box>);
+
+        const boxElement = screen.getByText(/Hello, World!/i);
+        expect(boxElement).toHaveClass('order-xxl-last');
+    });
 });

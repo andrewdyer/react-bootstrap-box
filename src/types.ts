@@ -65,3 +65,5 @@ export type TBoxUserSelect = 'none' | 'all' | 'auto';
 export type TResponsiveBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export type TResponsiveValue<T> = T | { [key in TResponsiveBreakpoints]?: T } | undefined;
+
+export type TBoxOrder = '0' | '1' | '2' | '3' | '4' | '5' | 'first' | 'last';

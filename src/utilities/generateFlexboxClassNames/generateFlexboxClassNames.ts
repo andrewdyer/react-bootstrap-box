@@ -8,6 +8,7 @@ import type {
     TBoxFlexDirection,
     TBoxFlexWrap,
     TBoxJustifyContent,
+    TBoxOrder,
     TResponsiveValue
 } from '../../types';
 
@@ -19,6 +20,7 @@ export interface FlexboxProps {
     flexFill?: TResponsiveValue<boolean>;
     flexWrap?: TResponsiveValue<TBoxFlexWrap>;
     justifyContent?: TResponsiveValue<TBoxJustifyContent>;
+    order?: TResponsiveValue<TBoxOrder>;
 }
 
 const generateFlexboxClassNames = ({
@@ -28,7 +30,8 @@ const generateFlexboxClassNames = ({
     flexDirection,
     flexFill,
     flexWrap,
-    justifyContent
+    justifyContent,
+    order
 }: FlexboxProps): string => {
     return classnames(
         generateResponsiveClasses('align-items', alignItems),
@@ -37,7 +40,8 @@ const generateFlexboxClassNames = ({
         generateResponsiveClasses('flex', flexDirection),
         generateResponsiveClasses('flex', flexFill, 'fill'),
         generateResponsiveClasses('flex', flexWrap),
-        generateResponsiveClasses('justify-content', justifyContent)
+        generateResponsiveClasses('justify-content', justifyContent),
+        generateResponsiveClasses('order', order)
     );
 };
 
