@@ -133,6 +133,78 @@ describe('generateFlexboxClassNames', () => {
         expect(classNames).toBe('order-sm-0 order-md-1 order-lg-2 order-xl-3 order-xxl-4');
     });
 
+    test('should generate "order-first" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: 'first' });
+
+        expect(classNames).toBe('order-first');
+    });
+
+    test('should generate "order-last" class when order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: 'last' });
+
+        expect(classNames).toBe('order-last');
+    });
+
+    test('should generate responsive "order-first" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { sm: 'first' } });
+
+        expect(classNames).toBe('order-sm-first');
+    });
+
+    test('should generate responsive "order-last" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { sm: 'last' } });
+
+        expect(classNames).toBe('order-sm-last');
+    });
+
+    test('should generate responsive "order-first" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { md: 'first' } });
+
+        expect(classNames).toBe('order-md-first');
+    });
+
+    test('should generate responsive "order-last" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { md: 'last' } });
+
+        expect(classNames).toBe('order-md-last');
+    });
+
+    test('should generate responsive "order-first" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { lg: 'first' } });
+
+        expect(classNames).toBe('order-lg-first');
+    });
+
+    test('should generate responsive "order-last" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { lg: 'last' } });
+
+        expect(classNames).toBe('order-lg-last');
+    });
+
+    test('should generate responsive "order-first" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { xl: 'first' } });
+
+        expect(classNames).toBe('order-xl-first');
+    });
+
+    test('should generate responsive "order-last" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { xl: 'last' } });
+
+        expect(classNames).toBe('order-xl-last');
+    });
+
+    test('should generate responsive "order-first" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { xxl: 'first' } });
+
+        expect(classNames).toBe('order-xxl-first');
+    });
+
+    test('should generate responsive "order-last" class when responsive order is provided', () => {
+        const classNames = generateFlexboxClassNames({ order: { xxl: 'last' } });
+
+        expect(classNames).toBe('order-xxl-last');
+    });
+
     test('should return an empty string when no properties are provided', () => {
         const classNames = generateFlexboxClassNames({});
 
