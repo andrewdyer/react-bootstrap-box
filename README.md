@@ -48,11 +48,11 @@ import React from 'react';
 import { Box } from 'react-bootstrap-box';
 
 const App = () => {
-    return (
-        <Box background="primary" color="white" margin="2" padding="5">
-            Hello, world!
-        </Box>
-    );
+  return (
+    <Box background="primary" color="white" margin="2" padding="5">
+      Hello, world!
+    </Box>
+  );
 };
 
 export default App;
