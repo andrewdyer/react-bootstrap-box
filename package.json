@@ -1,7 +1,7 @@
 {
   "name": "react-bootstrap-box",
   "description": "A versatile React component designed to apply Bootstrap utility classnames based on provided props",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
