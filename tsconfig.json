@@ -1,14 +1,21 @@
 {
-    "compilerOptions": {
-        "target": "ES5",
-        "jsx": "react",
-        "rootDir": "./src",
-        "strict": true,
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "types": ["jest", "@testing-library/jest-dom"]
-    },
-    "include": ["src"],
-    "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "dist"]
+  "compilerOptions": {
+    "target": "ES6",
+    "jsx": "react",
+    "rootDir": "./src",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["jest", "@testing-library/jest-dom"]
+  },
+  "include": ["src"],
+  "exclude": [
+    "dist",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "src/setupTests.ts"
+  ]
 }
