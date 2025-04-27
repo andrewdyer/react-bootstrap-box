@@ -1,4 +1,4 @@
-![React + Bootstrap Box](https://raw.githubusercontent.com/andrewdyer/andrewdyer/refs/heads/main/assets/images/covers/react-bootstrap-box.png)
+![React + Bootstrap Box](https://raw.githubusercontent.com/andrewdyer/public-assets/refs/heads/main/images/covers/react-bootstrap-box.png)
 
 # 📦 React + Bootstrap Box
 
