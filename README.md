@@ -1,4 +1,4 @@
-![React + Bootstrap Box](https://public-assets.andrewdyer.rocks/images/covers/react-bootstrap-box.png)
+![React + Bootstrap Box](https://public-assets.dyerlabs.co.uk/images/repos/react-bootstrap-box.png)
 
 # 📦 React + Bootstrap Box
 
