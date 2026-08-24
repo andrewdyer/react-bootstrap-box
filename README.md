@@ -28,7 +28,7 @@ yarn add bootstrap react-bootstrap-box
 
 ## Getting Started
 
-### 1. Including Bootstrap CSS
+### Including Bootstrap CSS
 
 First, ensure Bootstrap CSS is included in your project:
 
