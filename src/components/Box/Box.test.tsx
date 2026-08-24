@@ -128,6 +128,36 @@ describe('Box', () => {
     expect(boxElement).toHaveClass('flex-sm-fill');
   });
 
+  test('renders box component with flex grow property', () => {
+    render(<Box flexGrow="0">Hello, World!</Box>);
+
+    const boxElement = screen.getByText(/Hello, World!/i);
+    expect(boxElement).toHaveClass('flex-grow-0');
+  });
+
+  test('renders box component with responsive flex grow property', () => {
+    render(<Box flexGrow={{ xs: '0', sm: '1' }}>Hello, World!</Box>);
+
+    const boxElement = screen.getByText(/Hello, World!/i);
+    expect(boxElement).toHaveClass('flex-grow-0');
+    expect(boxElement).toHaveClass('flex-sm-grow-1');
+  });
+
+  test('renders box component with flex shrink property', () => {
+    render(<Box flexShrink="0">Hello, World!</Box>);
+
+    const boxElement = screen.getByText(/Hello, World!/i);
+    expect(boxElement).toHaveClass('flex-shrink-0');
+  });
+
+  test('renders box component with responsive flex shrink property', () => {
+    render(<Box flexShrink={{ xs: '0', sm: '1' }}>Hello, World!</Box>);
+
+    const boxElement = screen.getByText(/Hello, World!/i);
+    expect(boxElement).toHaveClass('flex-shrink-0');
+    expect(boxElement).toHaveClass('flex-sm-shrink-1');
+  });
+
   test('renders box component with flex wrap property', () => {
     render(<Box flexWrap="wrap">Hello, World!</Box>);
 
