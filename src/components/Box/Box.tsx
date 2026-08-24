@@ -91,6 +91,8 @@ const Box = <T extends React.ElementType = 'div'>({
   gradient,
   height,
   invisible,
+  minViewportHeight,
+  minViewportWidth,
   opacity,
   overflow,
   pointerEvents,
@@ -98,6 +100,8 @@ const Box = <T extends React.ElementType = 'div'>({
   small,
   userSelect,
   visible,
+  viewportHeight,
+  viewportWidth,
   width,
 
   ...props
@@ -165,6 +169,8 @@ const Box = <T extends React.ElementType = 'div'>({
     gradient,
     height,
     invisible,
+    minViewportHeight,
+    minViewportWidth,
     opacity,
     overflow,
     pointerEvents,
@@ -172,6 +178,8 @@ const Box = <T extends React.ElementType = 'div'>({
     small,
     userSelect,
     visible,
+    viewportHeight,
+    viewportWidth,
     width,
   });
 

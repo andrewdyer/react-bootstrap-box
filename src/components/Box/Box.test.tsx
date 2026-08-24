@@ -81,6 +81,20 @@ describe('Box', () => {
     expect(boxElement).toHaveClass('w-50');
   });
 
+  test('renders box component with viewport sizing', () => {
+    render(
+      <Box minViewportWidth minViewportHeight viewportWidth viewportHeight>
+        Hello, World!
+      </Box>
+    );
+
+    const boxElement = screen.getByText(/Hello, World!/i);
+    expect(boxElement).toHaveClass('min-vw-100');
+    expect(boxElement).toHaveClass('min-vh-100');
+    expect(boxElement).toHaveClass('vw-100');
+    expect(boxElement).toHaveClass('vh-100');
+  });
+
   test('renders box component with display property', () => {
     render(<Box display="block">Hello, World!</Box>);
 

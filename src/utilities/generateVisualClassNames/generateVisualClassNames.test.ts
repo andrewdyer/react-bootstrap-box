@@ -37,6 +37,17 @@ describe('generateVisualClassNames', () => {
     expect(classNames).toBe('invisible');
   });
 
+  test.each([
+    ['minViewportWidth', 'min-vw-100'],
+    ['minViewportHeight', 'min-vh-100'],
+    ['viewportWidth', 'vw-100'],
+    ['viewportHeight', 'vh-100'],
+  ] as const)('should generate "%s" sizing class', (property, expected) => {
+    const classNames = generateVisualClassNames({ [property]: true });
+
+    expect(classNames).toBe(expected);
+  });
+
   test('should generate "opacity-50" class when opacity is provided', () => {
     const classNames = generateVisualClassNames({ opacity: '50' });
 
