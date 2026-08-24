@@ -35,6 +35,10 @@ export type TBoxFlexDirection =
   | 'row-reverse'
   | 'column-reverse';
 
+export type TBoxFlexGrow = '0' | '1';
+
+export type TBoxFlexShrink = '0' | '1';
+
 export type TBoxFlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 
 export type TBoxFontSize = '1' | '2' | '3' | '4' | '5' | '6';

@@ -8,8 +8,10 @@ const generateResponsiveClasses = <T extends string>(
   const result: { [key: string]: boolean } = {};
 
   if (typeof value === 'string') {
-    // Handle a single string value without breakpoints
-    result[`${prefix}-${value}`] = true;
+    // Handle a single string value without breakpoints, optionally inserting
+    // the suffix as an infix before the value (e.g. "flex-grow-0")
+    result[suffix ? `${prefix}-${suffix}-${value}` : `${prefix}-${value}`] =
+      true;
   } else if (typeof value === 'boolean' && value === true && suffix) {
     // Handle a single boolean value with the provided suffix
     result[`${prefix}-${suffix}`] = true;
@@ -36,11 +38,17 @@ const generateResponsiveClasses = <T extends string>(
             result[`${prefix}-${breakpoint}-${suffix}`] = true;
           }
         } else {
-          // Handle string values for breakpoints
+          // Handle string values for breakpoints, optionally inserting the
+          // suffix as an infix before the value (e.g. "flex-sm-grow-0")
           if (breakpoint === 'xs') {
-            result[`${prefix}-${val}`] = true;
+            result[suffix ? `${prefix}-${suffix}-${val}` : `${prefix}-${val}`] =
+              true;
           } else {
-            result[`${prefix}-${breakpoint}-${val}`] = true;
+            result[
+              suffix
+                ? `${prefix}-${breakpoint}-${suffix}-${val}`
+                : `${prefix}-${breakpoint}-${val}`
+            ] = true;
           }
         }
       }

@@ -46,10 +46,27 @@ describe('generateResponsiveClasses', () => {
         'grow'
       )
     ).toEqual({
-      'flex-row': true,
+      'flex-grow-row': true,
       'flex-sm-grow': true,
-      'flex-md-column': true,
+      'flex-md-grow-column': true,
       'flex-lg-grow': true,
+    });
+  });
+
+  // New test case for a single string value with a suffix used as an infix
+  it('should generate class names with a string value and suffix', () => {
+    expect(generateResponsiveClasses('flex', '0', 'grow')).toEqual({
+      'flex-grow-0': true,
+    });
+  });
+
+  // New test case for string breakpoints with a suffix used as an infix
+  it('should generate class names with string breakpoints and suffix', () => {
+    expect(
+      generateResponsiveClasses('flex', { xs: '0', sm: '1' }, 'grow')
+    ).toEqual({
+      'flex-grow-0': true,
+      'flex-sm-grow-1': true,
     });
   });
 });

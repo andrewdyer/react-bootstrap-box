@@ -71,6 +71,46 @@ describe('generateFlexboxClassNames', () => {
     expect(classNames).toBe('flex-fill flex-sm-fill');
   });
 
+  test('should generate "flex-grow-0" class when flexGrow is provided', () => {
+    const classNames = generateFlexboxClassNames({ flexGrow: '0' });
+
+    expect(classNames).toBe('flex-grow-0');
+  });
+
+  test('should generate "flex-grow-1" class when flexGrow is provided', () => {
+    const classNames = generateFlexboxClassNames({ flexGrow: '1' });
+
+    expect(classNames).toBe('flex-grow-1');
+  });
+
+  test('should generate responsive "flex-grow" classes when responsive flexGrow is provided', () => {
+    const classNames = generateFlexboxClassNames({
+      flexGrow: { xs: '0', sm: '1' },
+    });
+
+    expect(classNames).toBe('flex-grow-0 flex-sm-grow-1');
+  });
+
+  test('should generate "flex-shrink-0" class when flexShrink is provided', () => {
+    const classNames = generateFlexboxClassNames({ flexShrink: '0' });
+
+    expect(classNames).toBe('flex-shrink-0');
+  });
+
+  test('should generate "flex-shrink-1" class when flexShrink is provided', () => {
+    const classNames = generateFlexboxClassNames({ flexShrink: '1' });
+
+    expect(classNames).toBe('flex-shrink-1');
+  });
+
+  test('should generate responsive "flex-shrink" classes when responsive flexShrink is provided', () => {
+    const classNames = generateFlexboxClassNames({
+      flexShrink: { xs: '0', sm: '1' },
+    });
+
+    expect(classNames).toBe('flex-shrink-0 flex-sm-shrink-1');
+  });
+
   test('should generate "flex-wrap" class when flexWrap is provided', () => {
     const classNames = generateFlexboxClassNames({ flexWrap: 'wrap' });
 

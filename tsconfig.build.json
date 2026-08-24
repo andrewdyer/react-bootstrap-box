@@ -12,6 +12,7 @@
     "**/*.spec.*",
     "**/*.stories.*",
     "src/setupTests.ts",
+    "src/stories",
     "dist",
     "node_modules"
   ]

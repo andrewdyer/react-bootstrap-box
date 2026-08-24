@@ -6,6 +6,8 @@ import type {
   TBoxAlignSelf,
   TBoxDisplay,
   TBoxFlexDirection,
+  TBoxFlexGrow,
+  TBoxFlexShrink,
   TBoxFlexWrap,
   TBoxJustifyContent,
   TBoxOrder,
@@ -18,6 +20,8 @@ export interface FlexboxProps {
   display?: TResponsiveValue<TBoxDisplay>;
   flexDirection?: TResponsiveValue<TBoxFlexDirection>;
   flexFill?: TResponsiveValue<boolean>;
+  flexGrow?: TResponsiveValue<TBoxFlexGrow>;
+  flexShrink?: TResponsiveValue<TBoxFlexShrink>;
   flexWrap?: TResponsiveValue<TBoxFlexWrap>;
   justifyContent?: TResponsiveValue<TBoxJustifyContent>;
   order?: TResponsiveValue<TBoxOrder>;
@@ -29,6 +33,8 @@ const generateFlexboxClassNames = ({
   display,
   flexDirection,
   flexFill,
+  flexGrow,
+  flexShrink,
   flexWrap,
   justifyContent,
   order,
@@ -39,6 +45,8 @@ const generateFlexboxClassNames = ({
     generateResponsiveClasses('d', display),
     generateResponsiveClasses('flex', flexDirection),
     generateResponsiveClasses('flex', flexFill, 'fill'),
+    generateResponsiveClasses('flex', flexGrow, 'grow'),
+    generateResponsiveClasses('flex', flexShrink, 'shrink'),
     generateResponsiveClasses('flex', flexWrap),
     generateResponsiveClasses('justify-content', justifyContent),
     generateResponsiveClasses('order', order)
