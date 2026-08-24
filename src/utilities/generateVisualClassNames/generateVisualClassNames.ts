@@ -17,6 +17,8 @@ export interface VisualProps {
   gradient?: boolean;
   height?: TBoxSizing;
   invisible?: boolean;
+  minViewportHeight?: boolean;
+  minViewportWidth?: boolean;
   opacity?: TBoxOpacity;
   overflow?: TBoxOverflow;
   pointerEvents?: TBoxPointerEvents;
@@ -24,6 +26,8 @@ export interface VisualProps {
   small?: boolean;
   userSelect?: TBoxUserSelect;
   visible?: boolean;
+  viewportHeight?: boolean;
+  viewportWidth?: boolean;
   width?: TBoxSizing;
 }
 
@@ -34,6 +38,8 @@ const generateVisualClassNames = ({
   gradient,
   height,
   invisible,
+  minViewportHeight,
+  minViewportWidth,
   opacity,
   overflow,
   pointerEvents,
@@ -41,6 +47,8 @@ const generateVisualClassNames = ({
   small,
   userSelect,
   visible,
+  viewportHeight,
+  viewportWidth,
   width,
 }: VisualProps): string => {
   return classnames({
@@ -49,6 +57,8 @@ const generateVisualClassNames = ({
     ['bg-gradient']: gradient,
     [`invisible`]: invisible,
     [`h-${height}`]: height,
+    ['min-vh-100']: minViewportHeight,
+    ['min-vw-100']: minViewportWidth,
     [`opacity-${opacity}`]: opacity,
     [`overflow-${overflow}`]: overflow,
     [`pe-${pointerEvents}`]: pointerEvents,
@@ -57,6 +67,8 @@ const generateVisualClassNames = ({
     [`text-${color}`]: color,
     [`user-select-${userSelect}`]: userSelect,
     [`visible`]: visible,
+    ['vh-100']: viewportHeight,
+    ['vw-100']: viewportWidth,
     [`w-${width}`]: width,
   });
 };
