@@ -17,31 +17,69 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const FontSizeAndWeight: Story = {
+export const FontSizes: Story = {
   parameters: {
     docs: {
       description: {
         story:
-          'Use `fontSize` to apply Bootstrap’s heading-scale font sizes and `fontWeight` to change the weight.',
+          'The `fontSize` prop supports every value in Bootstrap’s heading-based size scale.',
       },
       source: {
-        code: `<Box fontSize="1" fontWeight="bold">Size 1 / bold</Box>
-<Box fontSize="3" fontWeight="semibold">Size 3 / semibold</Box>
-<Box fontSize="6" fontWeight="light">Size 6 / light</Box>`,
+        code: `<Box fontSize="1">fontSize="1"</Box>
+<Box fontSize="2">fontSize="2"</Box>
+<Box fontSize="3">fontSize="3"</Box>
+<Box fontSize="4">fontSize="4"</Box>
+<Box fontSize="5">fontSize="5"</Box>
+<Box fontSize="6">fontSize="6"</Box>`,
       },
     },
   },
   render: () => (
     <Box>
-      <Box fontSize="1" fontWeight="bold">
-        Size 1 / bold
-      </Box>
-      <Box fontSize="3" fontWeight="semibold">
-        Size 3 / semibold
-      </Box>
-      <Box fontSize="6" fontWeight="light">
-        Size 6 / light
-      </Box>
+      {(['1', '2', '3', '4', '5', '6'] as const).map((fontSize) => (
+        <Box key={fontSize} fontSize={fontSize}>
+          fontSize=&quot;{fontSize}&quot;
+        </Box>
+      ))}
+    </Box>
+  ),
+};
+
+export const FontWeights: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'The `fontWeight` prop exposes every Bootstrap font-weight utility.',
+      },
+      source: {
+        code: `<Box fontWeight="bold">bold</Box>
+<Box fontWeight="bolder">bolder</Box>
+<Box fontWeight="semibold">semibold</Box>
+<Box fontWeight="medium">medium</Box>
+<Box fontWeight="normal">normal</Box>
+<Box fontWeight="light">light</Box>
+<Box fontWeight="lighter">lighter</Box>`,
+      },
+    },
+  },
+  render: () => (
+    <Box fontSize="4">
+      {(
+        [
+          'bold',
+          'bolder',
+          'semibold',
+          'medium',
+          'normal',
+          'light',
+          'lighter',
+        ] as const
+      ).map((fontWeight) => (
+        <Box key={fontWeight} fontWeight={fontWeight}>
+          fontWeight=&quot;{fontWeight}&quot;
+        </Box>
+      ))}
     </Box>
   ),
 };
@@ -55,6 +93,7 @@ export const LineHeight: Story = {
       },
       source: {
         code: `<Box lineHeight="1">...</Box>
+<Box lineHeight="sm">...</Box>
 <Box lineHeight="base">...</Box>
 <Box lineHeight="lg">...</Box>`,
       },
@@ -63,6 +102,7 @@ export const LineHeight: Story = {
   render: () => (
     <Box style={{ maxWidth: 520 }}>
       <Paragraph lineHeight="1">lineHeight=&quot;1&quot;</Paragraph>
+      <Paragraph lineHeight="sm">lineHeight=&quot;sm&quot;</Paragraph>
       <Paragraph lineHeight="base">lineHeight=&quot;base&quot;</Paragraph>
       <Paragraph lineHeight="lg">lineHeight=&quot;lg&quot;</Paragraph>
     </Box>
@@ -104,7 +144,9 @@ export const TransformAndWrapping: Story = {
           'Transform text casing with `textTransform`, control wrapping with `textWrap` or `textNoWrap`, and break long words with `wordBreak`.',
       },
       source: {
-        code: `<Box textTransform="uppercase">Uppercase text</Box>
+        code: `<Box textTransform="lowercase">LOWERCASE TEXT</Box>
+<Box textTransform="uppercase">Uppercase text</Box>
+<Box textTransform="capitalize">capitalized text</Box>
 <Box textWrap>Text that wraps</Box>
 <Box textNoWrap>Text that does not wrap</Box>
 <Box wordBreak>AReallyLongWordThatCanBreak</Box>`,
@@ -113,8 +155,14 @@ export const TransformAndWrapping: Story = {
   },
   render: () => (
     <Box style={{ width: 280 }}>
+      <Box textTransform="lowercase" marginBottom="2">
+        LOWERCASE TEXT
+      </Box>
       <Box textTransform="uppercase" marginBottom="2">
         Uppercase text
+      </Box>
+      <Box textTransform="capitalize" marginBottom="2">
+        capitalized text
       </Box>
       <Box textWrap background="light" marginBottom="2">
         This deliberately long line wraps inside its constrained container.
@@ -124,6 +172,48 @@ export const TransformAndWrapping: Story = {
       </Box>
       <Box wordBreak>
         AReallyLongWordWithoutNaturalBreakPointsThatCanNowBreak
+      </Box>
+    </Box>
+  ),
+};
+
+export const InlineTextUtilities: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Use `align` for vertical alignment of inline elements and `small` for Bootstrap’s smaller secondary text.',
+      },
+      source: {
+        code: `<Box as="span" align="baseline">baseline</Box>
+<Box as="span" align="top">top</Box>
+<Box as="span" align="middle">middle</Box>
+<Box as="span" align="bottom">bottom</Box>
+<Box as="span" align="text-top">text-top</Box>
+<Box as="span" align="text-bottom">text-bottom</Box>
+<Box as="span" small>Small text</Box>`,
+      },
+    },
+  },
+  render: () => (
+    <Box fontSize="3">
+      Reference
+      {(
+        [
+          'baseline',
+          'top',
+          'middle',
+          'bottom',
+          'text-top',
+          'text-bottom',
+        ] as const
+      ).map((align) => (
+        <Box key={align} as="span" align={align} fontSize="6" marginX="2">
+          {align}
+        </Box>
+      ))}
+      <Box as="span" small marginLeft="2">
+        small text
       </Box>
     </Box>
   ),
