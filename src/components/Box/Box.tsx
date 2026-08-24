@@ -7,12 +7,14 @@ import {
   generateFlexboxClassNames,
   generateMarginClassNames,
   generatePaddingClassNames,
+  generatePositionClassNames,
   generateTypographyClassNames,
   generateVisualClassNames,
   type BorderProps,
   type FlexboxProps,
   type MarginProps,
   type PaddingProps,
+  type PositionProps,
   type TypographyProps,
   type VisualProps,
 } from '../../utilities';
@@ -20,6 +22,7 @@ import {
 export type BoxProps = BorderProps &
   MarginProps &
   PaddingProps &
+  PositionProps &
   FlexboxProps &
   TypographyProps &
   VisualProps;
@@ -73,6 +76,13 @@ const Box = <T extends React.ElementType = 'div'>({
   paddingRight,
   paddingX,
   paddingY,
+
+  // Position properties
+  position,
+  top,
+  start,
+  bottom,
+  end,
 
   // Typography properties
   fontSize,
@@ -151,6 +161,14 @@ const Box = <T extends React.ElementType = 'div'>({
     paddingY,
   });
 
+  const positionClassNames: string = generatePositionClassNames({
+    position,
+    top,
+    start,
+    bottom,
+    end,
+  });
+
   const typographyClassNames = generateTypographyClassNames({
     fontSize,
     fontWeight,
@@ -188,6 +206,7 @@ const Box = <T extends React.ElementType = 'div'>({
     flexboxClassNames,
     marginClassNames,
     paddingClassNames,
+    positionClassNames,
     typographyClassNames,
     visualClassNames,
     className

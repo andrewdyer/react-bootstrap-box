@@ -95,6 +95,21 @@ describe('Box', () => {
     expect(boxElement).toHaveClass('vh-100');
   });
 
+  test('renders box component with position properties', () => {
+    render(
+      <Box position="absolute" top="0" start="50" bottom="100" end="0">
+        Hello, World!
+      </Box>
+    );
+
+    const boxElement = screen.getByText(/Hello, World!/i);
+    expect(boxElement).toHaveClass('position-absolute');
+    expect(boxElement).toHaveClass('top-0');
+    expect(boxElement).toHaveClass('start-50');
+    expect(boxElement).toHaveClass('bottom-100');
+    expect(boxElement).toHaveClass('end-0');
+  });
+
   test('renders box component with display property', () => {
     render(<Box display="block">Hello, World!</Box>);
 

@@ -68,6 +68,15 @@ export type TBoxOverflow = 'visible' | 'hidden' | 'scroll' | 'auto';
 
 export type TBoxPointerEvents = 'none' | 'auto';
 
+export type TBoxPosition =
+  | 'static'
+  | 'relative'
+  | 'absolute'
+  | 'fixed'
+  | 'sticky';
+
+export type TBoxPositionEdge = '0' | '50' | '100';
+
 export type TBoxRadius =
   | 'rounded'
   | 'rounded-top'
