@@ -1,3 +1,4 @@
+import { createRef, forwardRef } from 'react';
 import { render, screen } from '@testing-library/react';
 
 import Box from './Box';
@@ -11,11 +12,63 @@ describe('Box', () => {
   });
 
   test('renders box component as custom element', () => {
-    render(<Box tag="section">Hello, World!</Box>);
+    render(<Box as="section">Hello, World!</Box>);
 
     const boxElement = screen.getByText(/Hello, World!/i);
     expect(boxElement).toBeInTheDocument();
     expect(boxElement.tagName).toBe('SECTION');
+  });
+
+  test('supports props for the rendered element', () => {
+    render(
+      <Box as="button" type="button">
+        Hello, World!
+      </Box>
+    );
+
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+  });
+
+  test('supports custom components and their props', () => {
+    const CustomLink = ({ to, ...props }: { to: string; children: string }) => (
+      <a href={to} {...props} />
+    );
+
+    render(
+      <Box as={CustomLink} to="/dashboard">
+        Dashboard
+      </Box>
+    );
+
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/dashboard');
+  });
+
+  test('forwards a ref to the rendered element', () => {
+    const ref = createRef<HTMLButtonElement>();
+
+    render(
+      <Box as="button" ref={ref}>
+        Hello, World!
+      </Box>
+    );
+
+    expect(ref.current).toBe(screen.getByRole('button'));
+  });
+
+  test('forwards a ref to a custom component', () => {
+    const CustomLink = forwardRef<
+      HTMLAnchorElement,
+      { to: string; children: string }
+    >(({ to, ...props }, ref) => <a ref={ref} href={to} {...props} />);
+    const ref = createRef<HTMLAnchorElement>();
+
+    render(
+      <Box as={CustomLink} to="/dashboard" ref={ref}>
+        Dashboard
+      </Box>
+    );
+
+    expect(ref.current).toBe(screen.getByRole('link'));
   });
 
   test('renders box component with custom class', () => {

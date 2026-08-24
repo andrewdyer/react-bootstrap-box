@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import classnames from 'classnames';
 
@@ -18,8 +18,17 @@ import {
   type TypographyProps,
   type VisualProps,
 } from '../../utilities';
+import type {
+  PolymorphicComponent,
+  PolymorphicComponentProps,
+  PolymorphicRef,
+} from '../../types';
 
-export type BoxProps = BorderProps &
+const DEFAULT_ELEMENT = 'div' as const;
+
+type DefaultElement = typeof DEFAULT_ELEMENT;
+
+export type BoxOwnProps = BorderProps &
   MarginProps &
   PaddingProps &
   PositionProps &
@@ -27,192 +36,193 @@ export type BoxProps = BorderProps &
   TypographyProps &
   VisualProps;
 
-export type TagProps<T extends React.ElementType = 'div'> = {
-  tag?: T;
-} & React.ComponentPropsWithoutRef<T>;
+export type BoxProps<T extends React.ElementType = DefaultElement> =
+  PolymorphicComponentProps<T, BoxOwnProps>;
 
-export type BoxWithTagProps<T extends React.ElementType = 'div'> = TagProps<T> &
-  BoxProps;
+const Box = React.forwardRef(
+  (
+    {
+      as,
+      className,
 
-const Box = <T extends React.ElementType = 'div'>({
-  tag,
-  className,
+      // Border properties
+      border,
+      borderTop,
+      borderEnd,
+      borderBottom,
+      borderStart,
+      borderColor,
+      borderWidth,
 
-  // Border properties
-  border,
-  borderTop,
-  borderEnd,
-  borderBottom,
-  borderStart,
-  borderColor,
-  borderWidth,
+      // Flexbox properties
+      alignItems,
+      alignSelf,
+      display,
+      flexDirection,
+      flexFill,
+      flexGrow,
+      flexShrink,
+      flexWrap,
+      justifyContent,
+      order,
 
-  // Flexbox properties
-  alignItems,
-  alignSelf,
-  display,
-  flexDirection,
-  flexFill,
-  flexGrow,
-  flexShrink,
-  flexWrap,
-  justifyContent,
-  order,
+      // Margin properties
+      margin,
+      marginTop,
+      marginBottom,
+      marginLeft,
+      marginRight,
+      marginX,
+      marginY,
 
-  // Margin properties
-  margin,
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight,
-  marginX,
-  marginY,
+      // Padding properties
+      padding,
+      paddingTop,
+      paddingBottom,
+      paddingLeft,
+      paddingRight,
+      paddingX,
+      paddingY,
 
-  // Padding properties
-  padding,
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-  paddingX,
-  paddingY,
+      // Position properties
+      position,
+      top,
+      start,
+      bottom,
+      end,
 
-  // Position properties
-  position,
-  top,
-  start,
-  bottom,
-  end,
+      // Typography properties
+      fontSize,
+      fontWeight,
+      lineHeight,
+      textAlign,
+      textWrap,
+      textNoWrap,
+      textTransform,
+      wordBreak,
 
-  // Typography properties
-  fontSize,
-  fontWeight,
-  lineHeight,
-  textAlign,
-  textWrap,
-  textNoWrap,
-  textTransform,
-  wordBreak,
+      // Visual properties
+      align,
+      background,
+      color,
+      gradient,
+      height,
+      invisible,
+      minViewportHeight,
+      minViewportWidth,
+      opacity,
+      overflow,
+      pointerEvents,
+      radius,
+      small,
+      userSelect,
+      visible,
+      viewportHeight,
+      viewportWidth,
+      width,
 
-  // Visual properties
-  align,
-  background,
-  color,
-  gradient,
-  height,
-  invisible,
-  minViewportHeight,
-  minViewportWidth,
-  opacity,
-  overflow,
-  pointerEvents,
-  radius,
-  small,
-  userSelect,
-  visible,
-  viewportHeight,
-  viewportWidth,
-  width,
+      ...props
+    }: PolymorphicComponentProps<DefaultElement, BoxOwnProps>,
+    ref: PolymorphicRef<DefaultElement>
+  ) => {
+    const Component = as || DEFAULT_ELEMENT;
 
-  ...props
-}: BoxWithTagProps<T>) => {
-  const Tag = tag || 'div';
+    const borderClassNames: string = generateBorderClassNames({
+      border,
+      borderTop,
+      borderEnd,
+      borderBottom,
+      borderStart,
+      borderColor,
+      borderWidth,
+    });
 
-  const borderClassNames: string = generateBorderClassNames({
-    border,
-    borderTop,
-    borderEnd,
-    borderBottom,
-    borderStart,
-    borderColor,
-    borderWidth,
-  });
+    const flexboxClassNames: string = generateFlexboxClassNames({
+      alignItems,
+      alignSelf,
+      display,
+      flexDirection,
+      flexFill,
+      flexGrow,
+      flexShrink,
+      flexWrap,
+      justifyContent,
+      order,
+    });
 
-  const flexboxClassNames: string = generateFlexboxClassNames({
-    alignItems,
-    alignSelf,
-    display,
-    flexDirection,
-    flexFill,
-    flexGrow,
-    flexShrink,
-    flexWrap,
-    justifyContent,
-    order,
-  });
+    const marginClassNames: string = generateMarginClassNames({
+      margin,
+      marginTop,
+      marginBottom,
+      marginLeft,
+      marginRight,
+      marginX,
+      marginY,
+    });
 
-  const marginClassNames: string = generateMarginClassNames({
-    margin,
-    marginTop,
-    marginBottom,
-    marginLeft,
-    marginRight,
-    marginX,
-    marginY,
-  });
+    const paddingClassNames: string = generatePaddingClassNames({
+      padding,
+      paddingTop,
+      paddingBottom,
+      paddingLeft,
+      paddingRight,
+      paddingX,
+      paddingY,
+    });
 
-  const paddingClassNames: string = generatePaddingClassNames({
-    padding,
-    paddingTop,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
-    paddingX,
-    paddingY,
-  });
+    const positionClassNames: string = generatePositionClassNames({
+      position,
+      top,
+      start,
+      bottom,
+      end,
+    });
 
-  const positionClassNames: string = generatePositionClassNames({
-    position,
-    top,
-    start,
-    bottom,
-    end,
-  });
+    const typographyClassNames = generateTypographyClassNames({
+      fontSize,
+      fontWeight,
+      lineHeight,
+      textAlign,
+      textWrap,
+      textNoWrap,
+      textTransform,
+      wordBreak,
+    });
 
-  const typographyClassNames = generateTypographyClassNames({
-    fontSize,
-    fontWeight,
-    lineHeight,
-    textAlign,
-    textWrap,
-    textNoWrap,
-    textTransform,
-    wordBreak,
-  });
+    const visualClassNames = generateVisualClassNames({
+      align,
+      background,
+      color,
+      gradient,
+      height,
+      invisible,
+      minViewportHeight,
+      minViewportWidth,
+      opacity,
+      overflow,
+      pointerEvents,
+      radius,
+      small,
+      userSelect,
+      visible,
+      viewportHeight,
+      viewportWidth,
+      width,
+    });
 
-  const visualClassNames = generateVisualClassNames({
-    align,
-    background,
-    color,
-    gradient,
-    height,
-    invisible,
-    minViewportHeight,
-    minViewportWidth,
-    opacity,
-    overflow,
-    pointerEvents,
-    radius,
-    small,
-    userSelect,
-    visible,
-    viewportHeight,
-    viewportWidth,
-    width,
-  });
+    const classNames = classnames(
+      borderClassNames,
+      flexboxClassNames,
+      marginClassNames,
+      paddingClassNames,
+      positionClassNames,
+      typographyClassNames,
+      visualClassNames,
+      className
+    );
 
-  const classNames = classnames(
-    borderClassNames,
-    flexboxClassNames,
-    marginClassNames,
-    paddingClassNames,
-    positionClassNames,
-    typographyClassNames,
-    visualClassNames,
-    className
-  );
-
-  return <Tag className={classNames} {...props} />;
-};
+    return <Component ref={ref} className={classNames} {...props} />;
+  }
+) as PolymorphicComponent<DefaultElement, BoxOwnProps>;
 
 export default Box;

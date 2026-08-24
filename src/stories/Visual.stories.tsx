@@ -174,22 +174,22 @@ export const InlineTextUtilities: Story = {
           'Use `align` for vertical alignment of inline elements and `small` for Bootstrap’s smaller secondary text.',
       },
       source: {
-        code: `<Box tag="span" align="top">Top aligned</Box>
-<Box tag="span" align="middle">Middle aligned</Box>
-<Box tag="span" small>Small text</Box>`,
+        code: `<Box as="span" align="top">Top aligned</Box>
+<Box as="span" align="middle">Middle aligned</Box>
+<Box as="span" small>Small text</Box>`,
       },
     },
   },
   render: () => (
     <Box fontSize="3">
       Baseline
-      <Box tag="span" align="top" fontSize="6" marginX="2">
+      <Box as="span" align="top" fontSize="6" marginX="2">
         top
       </Box>
-      <Box tag="span" align="middle" fontSize="6" marginX="2">
+      <Box as="span" align="middle" fontSize="6" marginX="2">
         middle
       </Box>
-      <Box tag="span" small marginLeft="2">
+      <Box as="span" small marginLeft="2">
         small text
       </Box>
     </Box>
