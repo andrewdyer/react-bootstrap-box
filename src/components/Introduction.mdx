@@ -2,27 +2,37 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Introduction" />
 
+![React + Bootstrap Box](https://public-assets.dyerlabs.co.uk/images/repos/react-bootstrap-box.png)
+
+# React + Bootstrap Box
+
+A utility component library for React applications that maps typed props to responsive Bootstrap utility classes.
+
 ## Introduction
 
-The **React + Bootstrap Box** component simplifies applying Bootstrap utility classes in React. With an intuitive prop-driven API, it enables you to quickly and efficiently manage styles like borders, spacing, flexbox, typography, and more - all without manually writing classnames.
+This library provides a typed React component that maps layout, spacing, display, flexbox, border, typography, position, sizing, visibility, and interaction props to corresponding responsive Bootstrap utility classes. The component can render as native elements or other React components while preserving their props and refs, allowing reusable interfaces to apply Bootstrap utilities through a consistent component API.
+
+## Prerequisites
+
+- **[Node.js](https://nodejs.org/)**: Version 22 or higher is required.
+- **[React](https://react.dev/)**: Version 18.2 is required.
+- **[Bootstrap](https://getbootstrap.com/)**: Version 5.3 or higher provides the utility CSS.
 
 ## Installation
-
-To install this package use npm:
 
 ```bash
 npm install bootstrap react-bootstrap-box
 ```
 
-Or with Yarn:
-
 ```bash
 yarn add bootstrap react-bootstrap-box
 ```
 
-## Getting Started
+```bash
+pnpm add bootstrap react-bootstrap-box
+```
 
-### Including Bootstrap CSS
+## Getting Started
 
 First, ensure Bootstrap CSS is included in your project:
 
@@ -32,28 +42,58 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ## Usage
 
-### Using the Box Component
+Use Box props to select Bootstrap utilities and the rendered React element.
 
-In your `App.tsx`, or any other component, the `Box` component can be used:
+### Applying utilities
+
+Combine utility props to style a Box without assembling Bootstrap class names manually.
 
 ```tsx
-import React from 'react';
-
 import { Box } from 'react-bootstrap-box';
 
-const App = () => {
-  return (
-    <Box background="primary" color="white" margin="2" padding="5">
-      Hello, world!
-    </Box>
-  );
-};
-
-export default App;
+const Example = () => (
+  <Box background="primary" color="white" margin="2" padding="5">
+    Hello, world!
+  </Box>
+);
 ```
 
-## GitHub
+### Applying responsive utilities
 
-The **React + Bootstrap Box** component is hosted on GitHub: [https://github.com/andrewdyer/react-bootstrap-box](https://github.com/andrewdyer/react-bootstrap-box)
+Pass breakpoint values to responsive props to change utilities across viewport sizes.
 
-For support, please create an issue on the GitHub repository.
+```tsx
+import { Box } from 'react-bootstrap-box';
+
+const ResponsiveLayout = () => (
+  <Box
+    display="flex"
+    flexDirection={{ xs: 'column', md: 'row' }}
+    padding={{ xs: '2', md: '4' }}
+  >
+    Responsive content
+  </Box>
+);
+```
+
+### Rendering another element
+
+Set the polymorphic as prop to change the rendered element while retaining its native props and ref type.
+
+```tsx
+import { Box } from 'react-bootstrap-box';
+
+const Article = () => (
+  <Box as="article" aria-labelledby="article-title" padding="4">
+    <Box as="h2" id="article-title" fontSize="4">
+      Polymorphic content
+    </Box>
+  </Box>
+);
+```
+
+Complete utility examples and composition guidance are available in the [Storybook documentation](https://box.andrewdyer.rocks/).
+
+## License
+
+Licensed under the [MIT license](https://opensource.org/licenses/MIT) and is free for private or commercial projects.

@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-box",
-  "description": "A versatile React component designed to apply Bootstrap utility classnames based on provided props",
+  "description": "A utility component library for React applications that maps typed props to responsive Bootstrap utility classes.",
   "version": "4.4.1",
   "type": "module",
   "main": "./dist/index.cjs.js",
@@ -35,10 +35,13 @@
     "yalc:push": "yalc push"
   },
   "keywords": [
+    "typescript",
     "react",
-    "react component",
-    "react bootstrap",
-    "typescript"
+    "bootstrap",
+    "bootstrap-utilities",
+    "layout",
+    "responsive-design",
+    "polymorphic-component"
   ],
   "author": "Andrew Dyer (https://github.com/andrewdyer)",
   "repository": {
