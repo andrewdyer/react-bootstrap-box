@@ -1,33 +1,36 @@
+export type { BorderWidth } from './border';
 export type {
   AlignItems,
   AlignSelf,
-  BorderWidth,
   Display,
   FlexDirection,
   FlexGrow,
   FlexShrink,
   FlexWrap,
-  FontSize,
-  FontWeight,
   JustifyContent,
-  LineHeight,
-  Opacity,
   Order,
-  Overflow,
-  PointerEvents,
-  Position,
-  PositionEdge,
-  Radius,
-  Size,
-  Spacing,
-  TextAlign,
-  TextTransform,
-  UserSelect,
-  VerticalAlign,
-} from './box';
+} from './flexbox';
 export type {
   PolymorphicComponent,
   PolymorphicComponentProps,
   PolymorphicRef,
 } from './polymorphic';
+export type { Position, PositionEdge } from './position';
 export type { ResponsiveBreakpoint, ResponsiveValue } from './responsive';
+export type { Spacing } from './spacing';
+export type {
+  FontSize,
+  FontWeight,
+  LineHeight,
+  TextAlign,
+  TextTransform,
+} from './typography';
+export type {
+  Opacity,
+  Overflow,
+  PointerEvents,
+  Radius,
+  Size,
+  UserSelect,
+  VerticalAlign,
+} from './visual';
