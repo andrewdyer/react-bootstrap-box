@@ -1,8 +1,8 @@
-import type { TResponsiveBreakpoints, TResponsiveValue } from '../../types';
+import type { ResponsiveBreakpoint, ResponsiveValue } from '../../types';
 
 const generateResponsiveClasses = <T extends string>(
   prefix: string,
-  value: TResponsiveValue<T | boolean> | boolean,
+  value: ResponsiveValue<T | boolean> | boolean,
   suffix?: string
 ): { [key: string]: boolean } => {
   const result: { [key: string]: boolean } = {};
@@ -17,7 +17,7 @@ const generateResponsiveClasses = <T extends string>(
     result[`${prefix}-${suffix}`] = true;
   } else if (typeof value === 'object' && value !== null) {
     // Define an array of valid breakpoints
-    const breakpoints: TResponsiveBreakpoints[] = [
+    const breakpoints: ResponsiveBreakpoint[] = [
       'xs',
       'sm',
       'md',

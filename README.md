@@ -1,34 +1,34 @@
-![React + Bootstrap Box](https://public-assets.andrewdyer.rocks/images/covers/react-bootstrap-box.png)
+![React + Bootstrap Box](https://public-assets.dyerlabs.co.uk/images/repos/react-bootstrap-box.png)
 
-# 📦 React + Bootstrap Box
+# React + Bootstrap Box
 
-A versatile [React](https://react.dev/) component designed to apply [Bootstrap](https://getbootstrap.com/) utility classnames based on provided props.
+A utility component library for React applications that maps typed props to responsive Bootstrap utility classes.
 
-## 📄 License
+## Introduction
 
-Licensed under MIT. Totally free for private or commercial projects.
+This library provides a typed React component that maps layout, spacing, display, flexbox, border, typography, position, sizing, visibility, and interaction props to corresponding responsive Bootstrap utility classes. The component can render as native elements or other React components while preserving their props and refs, allowing reusable interfaces to apply Bootstrap utilities through a consistent component API.
 
-## ✨ Introduction
+## Prerequisites
 
-The **React + Bootstrap Box** component simplifies applying Bootstrap utility classes in React. With an intuitive prop-driven API, it enables you to quickly and efficiently manage styles like borders, spacing, flexbox, typography, and more - all without manually writing classnames.
+- **[Node.js](https://nodejs.org/)**: Version 22 or higher is required.
+- **[React](https://react.dev/)**: Version 18.2 is required.
+- **[Bootstrap](https://getbootstrap.com/)**: Version 5.3 or higher provides the utility CSS.
 
-## 📥 Installation
-
-To install this package use npm:
+## Installation
 
 ```bash
 npm install bootstrap react-bootstrap-box
 ```
 
-Or with Yarn:
-
 ```bash
 yarn add bootstrap react-bootstrap-box
 ```
 
-## 🚀 Getting Started
+```bash
+pnpm add bootstrap react-bootstrap-box
+```
 
-### 1. Including Bootstrap CSS
+## Getting Started
 
 First, ensure Bootstrap CSS is included in your project:
 
@@ -36,28 +36,60 @@ First, ensure Bootstrap CSS is included in your project:
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
-## 📖 Usage
+## Usage
 
-### Using the Box Component
+Use Box props to select Bootstrap utilities and the rendered React element.
 
-In your `App.tsx`, or any other component, the `Box` component can be used:
+### Applying utilities
+
+Combine utility props to style a Box without assembling Bootstrap class names manually.
 
 ```tsx
-import React from 'react';
-
 import { Box } from 'react-bootstrap-box';
 
-const App = () => {
-  return (
-    <Box background="primary" color="white" margin="2" padding="5">
-      Hello, world!
-    </Box>
-  );
-};
-
-export default App;
+const Example = () => (
+  <Box background="primary" color="white" margin="2" padding="5">
+    Hello, world!
+  </Box>
+);
 ```
 
-## 📚 Learn More
+### Applying responsive utilities
 
-Discover the full potential of the **React + Bootstrap Box** component by exploring its [Storybook documentation](https://box.andrewdyer.rocks/), where you'll find live examples, interactive demos, and detailed use cases for every prop.
+Pass breakpoint values to responsive props to change utilities across viewport sizes.
+
+```tsx
+import { Box } from 'react-bootstrap-box';
+
+const ResponsiveLayout = () => (
+  <Box
+    display="flex"
+    flexDirection={{ xs: 'column', md: 'row' }}
+    padding={{ xs: '2', md: '4' }}
+  >
+    Responsive content
+  </Box>
+);
+```
+
+### Rendering another element
+
+Set the polymorphic as prop to change the rendered element while retaining its native props and ref type.
+
+```tsx
+import { Box } from 'react-bootstrap-box';
+
+const Article = () => (
+  <Box as="article" aria-labelledby="article-title" padding="4">
+    <Box as="h2" id="article-title" fontSize="4">
+      Polymorphic content
+    </Box>
+  </Box>
+);
+```
+
+Complete utility examples and composition guidance are available in the [Storybook documentation](https://box.andrewdyer.rocks/).
+
+## License
+
+Licensed under the [MIT license](https://opensource.org/licenses/MIT) and is free for private or commercial projects.

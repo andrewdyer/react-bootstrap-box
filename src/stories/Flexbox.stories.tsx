@@ -230,6 +230,174 @@ export const FlexShrink: Story = {
   ),
 };
 
+export const DirectionAndWrappingValues: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '`flexDirection` supports row and column layouts in either direction. `flexWrap` supports no wrapping, normal wrapping, and reverse wrapping.',
+      },
+      source: {
+        code: `<Box display="flex" flexDirection="row">...</Box>
+<Box display="flex" flexDirection="column">...</Box>
+<Box display="flex" flexDirection="row-reverse">...</Box>
+<Box display="flex" flexDirection="column-reverse">...</Box>
+
+<Box display="flex" flexWrap="nowrap">...</Box>
+<Box display="flex" flexWrap="wrap">...</Box>
+<Box display="flex" flexWrap="wrap-reverse">...</Box>`,
+      },
+    },
+  },
+  render: () => (
+    <Box display="flex" flexWrap="wrap" style={{ width: 620 }}>
+      {(['row', 'column', 'row-reverse', 'column-reverse'] as const).map(
+        (flexDirection) => (
+          <Box key={flexDirection} margin="2">
+            <Box as="code">{flexDirection}</Box>
+            <Box
+              display="flex"
+              flexDirection={flexDirection}
+              background="light"
+              border
+              style={{ width: 260, minHeight: 90 }}
+            >
+              <Item>One</Item>
+              <Item>Two</Item>
+            </Box>
+          </Box>
+        )
+      )}
+      {(['nowrap', 'wrap', 'wrap-reverse'] as const).map((flexWrap) => (
+        <Box key={flexWrap} margin="2">
+          <Box as="code">{flexWrap}</Box>
+          <Box
+            display="flex"
+            flexWrap={flexWrap}
+            background="light"
+            border
+            style={{ width: 260 }}
+          >
+            <Item style={{ width: 120 }}>One</Item>
+            <Item style={{ width: 120 }}>Two</Item>
+            <Item style={{ width: 120 }}>Three</Item>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  ),
+};
+
+export const JustifyContentValues: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'The `justifyContent` prop supports every Bootstrap main-axis alignment value.',
+      },
+      source: {
+        code: `<Box display="flex" justifyContent="start">...</Box>
+<Box display="flex" justifyContent="end">...</Box>
+<Box display="flex" justifyContent="center">...</Box>
+<Box display="flex" justifyContent="between">...</Box>
+<Box display="flex" justifyContent="around">...</Box>
+<Box display="flex" justifyContent="evenly">...</Box>`,
+      },
+    },
+  },
+  render: () => (
+    <Box style={{ width: 520 }}>
+      {(['start', 'end', 'center', 'between', 'around', 'evenly'] as const).map(
+        (justifyContent) => (
+          <Box key={justifyContent} marginBottom="2">
+            <Box as="code">{justifyContent}</Box>
+            <Box
+              display="flex"
+              justifyContent={justifyContent}
+              background="light"
+              border
+            >
+              <Item>One</Item>
+              <Item>Two</Item>
+            </Box>
+          </Box>
+        )
+      )}
+    </Box>
+  ),
+};
+
+export const AlignmentValues: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '`alignItems` and `alignSelf` share the values `start`, `end`, `center`, `baseline`, and `stretch`.',
+      },
+      source: {
+        code: `<Box display="flex" alignItems="start">...</Box>
+<Box display="flex" alignItems="end">...</Box>
+<Box display="flex" alignItems="center">...</Box>
+<Box display="flex" alignItems="baseline">...</Box>
+<Box display="flex" alignItems="stretch">...</Box>`,
+      },
+    },
+  },
+  render: () => (
+    <Box display="flex" flexWrap="wrap" style={{ width: 620 }}>
+      {(['start', 'end', 'center', 'baseline', 'stretch'] as const).map(
+        (alignItems) => (
+          <Box key={alignItems} margin="2">
+            <Box as="code">{alignItems}</Box>
+            <Box
+              display="flex"
+              alignItems={alignItems}
+              background="light"
+              border
+              style={{ width: 170, height: 110 }}
+            >
+              <Item>One</Item>
+              <Item paddingY="4">Two</Item>
+            </Box>
+          </Box>
+        )
+      )}
+    </Box>
+  ),
+};
+
+export const OrderValues: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'The `order` prop supports `first`, numeric values from `0` through `5`, and `last`.',
+      },
+      source: {
+        code: `<Box order="first">first</Box>
+<Box order="0">0</Box>
+<Box order="1">1</Box>
+<Box order="2">2</Box>
+<Box order="3">3</Box>
+<Box order="4">4</Box>
+<Box order="5">5</Box>
+<Box order="last">last</Box>`,
+      },
+    },
+  },
+  render: () => (
+    <Box display="flex" flexWrap="wrap">
+      {(['first', '0', '1', '2', '3', '4', '5', 'last'] as const).map(
+        (order) => (
+          <Item key={order} order={order}>
+            {order}
+          </Item>
+        )
+      )}
+    </Box>
+  ),
+};
+
 const Item = (props: React.ComponentProps<typeof Box>) => (
   <Box background="primary" color="white" padding="3" margin="1" {...props} />
 );

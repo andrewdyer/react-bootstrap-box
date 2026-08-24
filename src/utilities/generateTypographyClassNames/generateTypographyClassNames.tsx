@@ -2,24 +2,24 @@ import classnames from 'classnames';
 
 import { generateResponsiveClasses } from '..';
 import type {
-  TBoxFontSize,
-  TBoxFontWeight,
-  TBoxLineHeight,
-  TBoxTextAlign,
-  TBoxTextTransform,
-  TResponsiveValue,
+  FontSize,
+  FontWeight,
+  LineHeight,
+  ResponsiveValue,
+  TextAlign,
+  TextTransform,
 } from '../../types';
 
-export interface TypographyProps {
-  fontSize?: TBoxFontSize;
-  fontWeight?: TBoxFontWeight;
-  lineHeight?: TBoxLineHeight;
-  textAlign?: TResponsiveValue<TBoxTextAlign>;
+export type TypographyProps = {
+  fontSize?: FontSize;
+  fontWeight?: FontWeight;
+  lineHeight?: LineHeight;
+  textAlign?: ResponsiveValue<TextAlign>;
   textWrap?: boolean;
   textNoWrap?: boolean;
-  textTransform?: TBoxTextTransform;
+  textTransform?: TextTransform;
   wordBreak?: boolean;
-}
+};
 
 const generateTypographyClassNames = ({
   fontSize,

@@ -1,17 +1,17 @@
 import classnames from 'classnames';
 
 import { generateResponsiveClasses } from '..';
-import type { TBoxSpacing, TResponsiveValue } from '../../types';
+import type { ResponsiveValue, Spacing } from '../../types';
 
-export interface PaddingProps {
-  padding?: TResponsiveValue<TBoxSpacing>;
-  paddingTop?: TResponsiveValue<TBoxSpacing>;
-  paddingBottom?: TResponsiveValue<TBoxSpacing>;
-  paddingLeft?: TResponsiveValue<TBoxSpacing>;
-  paddingRight?: TResponsiveValue<TBoxSpacing>;
-  paddingX?: TResponsiveValue<TBoxSpacing>;
-  paddingY?: TResponsiveValue<TBoxSpacing>;
-}
+export type PaddingProps = {
+  padding?: ResponsiveValue<Spacing>;
+  paddingTop?: ResponsiveValue<Spacing>;
+  paddingBottom?: ResponsiveValue<Spacing>;
+  paddingLeft?: ResponsiveValue<Spacing>;
+  paddingRight?: ResponsiveValue<Spacing>;
+  paddingX?: ResponsiveValue<Spacing>;
+  paddingY?: ResponsiveValue<Spacing>;
+};
 
 const generatePaddingClassNames = ({
   padding,

@@ -1,17 +1,17 @@
 import classnames from 'classnames';
 
 import { generateResponsiveClasses } from '..';
-import type { TBoxSpacing, TResponsiveValue } from '../../types';
+import type { MarginSpacing, ResponsiveValue } from '../../types';
 
-export interface MarginProps {
-  margin?: TResponsiveValue<TBoxSpacing>;
-  marginTop?: TResponsiveValue<TBoxSpacing>;
-  marginBottom?: TResponsiveValue<TBoxSpacing>;
-  marginLeft?: TResponsiveValue<TBoxSpacing>;
-  marginRight?: TResponsiveValue<TBoxSpacing>;
-  marginX?: TResponsiveValue<TBoxSpacing>;
-  marginY?: TResponsiveValue<TBoxSpacing>;
-}
+export type MarginProps = {
+  margin?: ResponsiveValue<MarginSpacing>;
+  marginTop?: ResponsiveValue<MarginSpacing>;
+  marginBottom?: ResponsiveValue<MarginSpacing>;
+  marginLeft?: ResponsiveValue<MarginSpacing>;
+  marginRight?: ResponsiveValue<MarginSpacing>;
+  marginX?: ResponsiveValue<MarginSpacing>;
+  marginY?: ResponsiveValue<MarginSpacing>;
+};
 
 const generateMarginClassNames = ({
   margin,

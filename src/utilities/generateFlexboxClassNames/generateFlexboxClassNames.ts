@@ -2,30 +2,30 @@ import classnames from 'classnames';
 
 import { generateResponsiveClasses } from '..';
 import type {
-  TBoxAlignItems,
-  TBoxAlignSelf,
-  TBoxDisplay,
-  TBoxFlexDirection,
-  TBoxFlexGrow,
-  TBoxFlexShrink,
-  TBoxFlexWrap,
-  TBoxJustifyContent,
-  TBoxOrder,
-  TResponsiveValue,
+  AlignItems,
+  AlignSelf,
+  Display,
+  FlexDirection,
+  FlexGrow,
+  FlexShrink,
+  FlexWrap,
+  JustifyContent,
+  Order,
+  ResponsiveValue,
 } from '../../types';
 
-export interface FlexboxProps {
-  alignItems?: TResponsiveValue<TBoxAlignItems>;
-  alignSelf?: TResponsiveValue<TBoxAlignSelf>;
-  display?: TResponsiveValue<TBoxDisplay>;
-  flexDirection?: TResponsiveValue<TBoxFlexDirection>;
-  flexFill?: TResponsiveValue<boolean>;
-  flexGrow?: TResponsiveValue<TBoxFlexGrow>;
-  flexShrink?: TResponsiveValue<TBoxFlexShrink>;
-  flexWrap?: TResponsiveValue<TBoxFlexWrap>;
-  justifyContent?: TResponsiveValue<TBoxJustifyContent>;
-  order?: TResponsiveValue<TBoxOrder>;
-}
+export type FlexboxProps = {
+  alignItems?: ResponsiveValue<AlignItems>;
+  alignSelf?: ResponsiveValue<AlignSelf>;
+  display?: ResponsiveValue<Display>;
+  flexDirection?: ResponsiveValue<FlexDirection>;
+  flexFill?: ResponsiveValue<boolean>;
+  flexGrow?: ResponsiveValue<FlexGrow>;
+  flexShrink?: ResponsiveValue<FlexShrink>;
+  flexWrap?: ResponsiveValue<FlexWrap>;
+  justifyContent?: ResponsiveValue<JustifyContent>;
+  order?: ResponsiveValue<Order>;
+};
 
 const generateFlexboxClassNames = ({
   alignItems,

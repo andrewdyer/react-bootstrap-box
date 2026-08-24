@@ -1,16 +1,16 @@
 import classnames from 'classnames';
 
-import type { TBoxBorderWidth } from '../../types';
+import type { BorderWidth } from '../../types';
 
-export interface BorderProps {
+export type BorderProps = {
   border?: boolean;
   borderTop?: boolean | 0;
   borderEnd?: boolean | 0;
   borderBottom?: boolean | 0;
   borderStart?: boolean | 0;
   borderColor?: string;
-  borderWidth?: TBoxBorderWidth;
-}
+  borderWidth?: BorderWidth;
+};
 
 const generateBorderClassNames = ({
   border,
