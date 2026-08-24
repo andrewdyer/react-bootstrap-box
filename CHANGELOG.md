@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.1](https://github.com/andrewdyer/react-bootstrap-box/compare/react-bootstrap-box-v4.4.0...react-bootstrap-box-v4.4.1) (2026-08-24)
+
+
+### Bug Fixes
+
+* enable npm trusted publishing ([87ad31e](https://github.com/andrewdyer/react-bootstrap-box/commit/87ad31e2ecb889508bb3433db35f1ab47badc8fb))
+
 ## [4.4.0](https://github.com/andrewdyer/react-bootstrap-box/compare/react-bootstrap-box-v4.3.0...react-bootstrap-box-v4.4.0) (2026-08-24)
 
 
