@@ -1,16 +1,16 @@
 import classnames from 'classnames';
 
 import { generateResponsiveClasses } from '..';
-import type { ResponsiveValue, Spacing } from '../../types';
+import type { MarginSpacing, ResponsiveValue } from '../../types';
 
 export type MarginProps = {
-  margin?: ResponsiveValue<Spacing>;
-  marginTop?: ResponsiveValue<Spacing>;
-  marginBottom?: ResponsiveValue<Spacing>;
-  marginLeft?: ResponsiveValue<Spacing>;
-  marginRight?: ResponsiveValue<Spacing>;
-  marginX?: ResponsiveValue<Spacing>;
-  marginY?: ResponsiveValue<Spacing>;
+  margin?: ResponsiveValue<MarginSpacing>;
+  marginTop?: ResponsiveValue<MarginSpacing>;
+  marginBottom?: ResponsiveValue<MarginSpacing>;
+  marginLeft?: ResponsiveValue<MarginSpacing>;
+  marginRight?: ResponsiveValue<MarginSpacing>;
+  marginX?: ResponsiveValue<MarginSpacing>;
+  marginY?: ResponsiveValue<MarginSpacing>;
 };
 
 const generateMarginClassNames = ({

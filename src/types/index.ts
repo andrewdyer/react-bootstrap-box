@@ -17,7 +17,7 @@ export type {
 } from './polymorphic';
 export type { Position, PositionEdge } from './position';
 export type { ResponsiveBreakpoint, ResponsiveValue } from './responsive';
-export type { Spacing } from './spacing';
+export type { MarginSpacing, Spacing } from './spacing';
 export type {
   FontSize,
   FontWeight,
