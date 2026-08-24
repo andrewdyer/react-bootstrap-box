@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/andrewdyer/react-bootstrap-box/compare/react-bootstrap-box-v4.4.1...react-bootstrap-box-v5.0.0) (2026-08-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* The Box tag prop has been removed. Use the as prop instead.
+
+### Features
+
+* add polymorphic types and refactor component utilities ([#23](https://github.com/andrewdyer/react-bootstrap-box/issues/23)) ([15e18d8](https://github.com/andrewdyer/react-bootstrap-box/commit/15e18d851c886b9f2f31eabbcd1f970a5a77c03c))
+
 ## [4.4.1](https://github.com/andrewdyer/react-bootstrap-box/compare/react-bootstrap-box-v4.4.0...react-bootstrap-box-v4.4.1) (2026-08-24)
 
 
