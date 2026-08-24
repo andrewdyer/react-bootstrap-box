@@ -10,7 +10,7 @@ import type {
   VerticalAlign,
 } from '../../types';
 
-export interface VisualProps {
+export type VisualProps = {
   align?: VerticalAlign;
   background?: string;
   color?: string;
@@ -29,7 +29,7 @@ export interface VisualProps {
   viewportHeight?: boolean;
   viewportWidth?: boolean;
   width?: Size;
-}
+};
 
 const generateVisualClassNames = ({
   align,

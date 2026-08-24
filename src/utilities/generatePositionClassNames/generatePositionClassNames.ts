@@ -2,13 +2,13 @@ import classnames from 'classnames';
 
 import type { Position, PositionEdge } from '../../types';
 
-export interface PositionProps {
+export type PositionProps = {
   position?: Position;
   top?: PositionEdge;
   start?: PositionEdge;
   bottom?: PositionEdge;
   end?: PositionEdge;
-}
+};
 
 const generatePositionClassNames = ({
   position,

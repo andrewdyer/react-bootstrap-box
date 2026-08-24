@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { generateResponsiveClasses } from '..';
 import type { ResponsiveValue, Spacing } from '../../types';
 
-export interface MarginProps {
+export type MarginProps = {
   margin?: ResponsiveValue<Spacing>;
   marginTop?: ResponsiveValue<Spacing>;
   marginBottom?: ResponsiveValue<Spacing>;
@@ -11,7 +11,7 @@ export interface MarginProps {
   marginRight?: ResponsiveValue<Spacing>;
   marginX?: ResponsiveValue<Spacing>;
   marginY?: ResponsiveValue<Spacing>;
-}
+};
 
 const generateMarginClassNames = ({
   margin,

@@ -14,7 +14,7 @@ import type {
   ResponsiveValue,
 } from '../../types';
 
-export interface FlexboxProps {
+export type FlexboxProps = {
   alignItems?: ResponsiveValue<AlignItems>;
   alignSelf?: ResponsiveValue<AlignSelf>;
   display?: ResponsiveValue<Display>;
@@ -25,7 +25,7 @@ export interface FlexboxProps {
   flexWrap?: ResponsiveValue<FlexWrap>;
   justifyContent?: ResponsiveValue<JustifyContent>;
   order?: ResponsiveValue<Order>;
-}
+};
 
 const generateFlexboxClassNames = ({
   alignItems,

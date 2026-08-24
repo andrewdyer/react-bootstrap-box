@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { generateResponsiveClasses } from '..';
 import type { ResponsiveValue, Spacing } from '../../types';
 
-export interface PaddingProps {
+export type PaddingProps = {
   padding?: ResponsiveValue<Spacing>;
   paddingTop?: ResponsiveValue<Spacing>;
   paddingBottom?: ResponsiveValue<Spacing>;
@@ -11,7 +11,7 @@ export interface PaddingProps {
   paddingRight?: ResponsiveValue<Spacing>;
   paddingX?: ResponsiveValue<Spacing>;
   paddingY?: ResponsiveValue<Spacing>;
-}
+};
 
 const generatePaddingClassNames = ({
   padding,

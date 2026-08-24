@@ -10,7 +10,7 @@ import type {
   TextTransform,
 } from '../../types';
 
-export interface TypographyProps {
+export type TypographyProps = {
   fontSize?: FontSize;
   fontWeight?: FontWeight;
   lineHeight?: LineHeight;
@@ -19,7 +19,7 @@ export interface TypographyProps {
   textNoWrap?: boolean;
   textTransform?: TextTransform;
   wordBreak?: boolean;
-}
+};
 
 const generateTypographyClassNames = ({
   fontSize,
