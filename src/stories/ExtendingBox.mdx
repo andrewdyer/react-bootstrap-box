@@ -1,0 +1,174 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as ExtendingBoxStories from './ExtendingBox.stories';
+
+<Meta of={ExtendingBoxStories} />
+
+# Extending Box
+
+`Box` can be used as the foundation for components in a design system. The
+resulting component can provide its own styles and behaviour while retaining
+Box utilities, native element props, the polymorphic `as` prop, and typed refs.
+
+This guide builds a `Card` component as an example.
+
+## 1. Define the component's own props
+
+Start with `BoxOwnProps` so the new component accepts every Box utility prop.
+Add any props belonging specifically to the new component to this type.
+
+```tsx
+import type { BoxOwnProps } from 'react-bootstrap-box';
+
+type CardOwnProps = BoxOwnProps & {
+  /** Add a Bootstrap shadow to the Card. */
+  elevated?: boolean;
+};
+```
+
+`children` does not need to be declared by Card. It is inherited from the
+element or component passed to `as`, along with that element's other props.
+
+## 2. Create the polymorphic props
+
+Use `PolymorphicComponentProps` to combine the component's own props with the
+props of the element or component supplied through `as`.
+
+```tsx
+import type { PolymorphicComponentProps } from 'react-bootstrap-box';
+
+const DEFAULT_ELEMENT = 'div' as const;
+
+type DefaultElement = typeof DEFAULT_ELEMENT;
+
+export type CardProps<T extends React.ElementType = DefaultElement> =
+  PolymorphicComponentProps<T, CardOwnProps>;
+```
+
+For example, `as="article"` makes article attributes available, while
+`as={Link}` makes that component's props available.
+
+## 3. Forward the element ref
+
+Render `Box` as the requested element and forward its ref. Card-specific props
+such as `elevated` should be consumed by Card rather than passed to the DOM.
+Casting the result to `PolymorphicComponent` preserves the generic relationship
+between `as`, its props, and its ref.
+
+```tsx
+import classnames from 'classnames';
+
+const Card = React.forwardRef(
+  (
+    {
+      as,
+      className,
+      elevated = false,
+      ...props
+    }: PolymorphicComponentProps<DefaultElement, CardOwnProps>,
+    ref: PolymorphicRef<DefaultElement>
+  ) => (
+    <Box
+      as={as || DEFAULT_ELEMENT}
+      ref={ref}
+      className={classnames({ shadow: elevated }, className)}
+      {...props}
+    />
+  )
+) as PolymorphicComponent<DefaultElement, CardOwnProps>;
+```
+
+## 4. Add the component defaults
+
+The Card can now supply its Bootstrap component class and default Box utilities.
+Placing `...props` last allows consumers to override the visual defaults when
+needed.
+
+```tsx
+const Card = React.forwardRef(
+  (
+    {
+      as,
+      className,
+      elevated = false,
+      ...props
+    }: PolymorphicComponentProps<DefaultElement, CardOwnProps>,
+    ref: PolymorphicRef<DefaultElement>
+  ) => (
+    <Box
+      as={as || DEFAULT_ELEMENT}
+      ref={ref}
+      className={classnames('card', { shadow: elevated }, className)}
+      padding="3"
+      background="light"
+      border
+      radius="rounded"
+      {...props}
+    />
+  )
+) as PolymorphicComponent<DefaultElement, CardOwnProps>;
+```
+
+## Complete Card component
+
+```tsx
+import * as React from 'react';
+import classnames from 'classnames';
+import {
+  Box,
+  type BoxOwnProps,
+  type PolymorphicComponent,
+  type PolymorphicComponentProps,
+  type PolymorphicRef,
+} from 'react-bootstrap-box';
+
+const DEFAULT_ELEMENT = 'div' as const;
+
+type DefaultElement = typeof DEFAULT_ELEMENT;
+type CardOwnProps = BoxOwnProps & {
+  /** Add a Bootstrap shadow to the Card. */
+  elevated?: boolean;
+};
+
+export type CardProps<T extends React.ElementType = DefaultElement> =
+  PolymorphicComponentProps<T, CardOwnProps>;
+
+const Card = React.forwardRef(
+  (
+    {
+      as,
+      className,
+      elevated = false,
+      ...props
+    }: PolymorphicComponentProps<DefaultElement, CardOwnProps>,
+    ref: PolymorphicRef<DefaultElement>
+  ) => (
+    <Box
+      as={as || DEFAULT_ELEMENT}
+      ref={ref}
+      className={classnames('card', { shadow: elevated }, className)}
+      padding="4"
+      background="light"
+      border
+      radius="rounded"
+      {...props}
+    />
+  )
+) as PolymorphicComponent<DefaultElement, CardOwnProps>;
+
+export default Card;
+```
+
+The finished component remains fully composable:
+
+```tsx
+<Card as="article" aria-labelledby="card-title" elevated>
+  <Box as="h2" id="card-title" fontSize="4">
+    Build with Box
+  </Box>
+  <Box as="p" marginBottom="0">
+    Compose design-system components without giving up native element props.
+  </Box>
+</Card>
+```
+
+<Canvas of={ExtendingBoxStories.CompleteExample} sourceState="none" />
