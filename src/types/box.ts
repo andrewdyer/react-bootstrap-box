@@ -1,4 +1,4 @@
-export type TBoxAlign =
+export type VerticalAlign =
   | 'baseline'
   | 'top'
   | 'middle'
@@ -6,18 +6,13 @@ export type TBoxAlign =
   | 'text-top'
   | 'text-bottom';
 
-export type TBoxAlignItems =
-  | 'start'
-  | 'end'
-  | 'center'
-  | 'baseline'
-  | 'stretch';
+export type AlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 
-export type TBoxAlignSelf = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+export type AlignSelf = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 
-export type TBoxBorderWidth = '1' | '2' | '3' | '4' | '5';
+export type BorderWidth = '1' | '2' | '3' | '4' | '5';
 
-export type TBoxDisplay =
+export type Display =
   | 'none'
   | 'inline'
   | 'inline-block'
@@ -29,21 +24,17 @@ export type TBoxDisplay =
   | 'flex'
   | 'inline-flex';
 
-export type TBoxFlexDirection =
-  | 'row'
-  | 'column'
-  | 'row-reverse'
-  | 'column-reverse';
+export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
-export type TBoxFlexGrow = '0' | '1';
+export type FlexGrow = '0' | '1';
 
-export type TBoxFlexShrink = '0' | '1';
+export type FlexShrink = '0' | '1';
 
-export type TBoxFlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
+export type FlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 
-export type TBoxFontSize = '1' | '2' | '3' | '4' | '5' | '6';
+export type FontSize = '1' | '2' | '3' | '4' | '5' | '6';
 
-export type TBoxFontWeight =
+export type FontWeight =
   | 'bold'
   | 'bolder'
   | 'semibold'
@@ -52,7 +43,7 @@ export type TBoxFontWeight =
   | 'light'
   | 'lighter';
 
-export type TBoxJustifyContent =
+export type JustifyContent =
   | 'start'
   | 'end'
   | 'center'
@@ -60,26 +51,21 @@ export type TBoxJustifyContent =
   | 'around'
   | 'evenly';
 
-export type TBoxLineHeight = '1' | 'sm' | 'base' | 'lg';
+export type LineHeight = '1' | 'sm' | 'base' | 'lg';
 
-export type TBoxOpacity = '25' | '50' | '75' | '100';
+export type Opacity = '25' | '50' | '75' | '100';
 
-export type TBoxOrder = '0' | '1' | '2' | '3' | '4' | '5' | 'first' | 'last';
+export type Order = '0' | '1' | '2' | '3' | '4' | '5' | 'first' | 'last';
 
-export type TBoxOverflow = 'visible' | 'hidden' | 'scroll' | 'auto';
+export type Overflow = 'visible' | 'hidden' | 'scroll' | 'auto';
 
-export type TBoxPointerEvents = 'none' | 'auto';
+export type PointerEvents = 'none' | 'auto';
 
-export type TBoxPosition =
-  | 'static'
-  | 'relative'
-  | 'absolute'
-  | 'fixed'
-  | 'sticky';
+export type Position = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 
-export type TBoxPositionEdge = '0' | '50' | '100';
+export type PositionEdge = '0' | '50' | '100';
 
-export type TBoxRadius =
+export type Radius =
   | 'rounded'
   | 'rounded-top'
   | 'rounded-end'
@@ -88,12 +74,12 @@ export type TBoxRadius =
   | 'rounded-circle'
   | 'rounded-pill';
 
-export type TBoxSizing = '25' | '50' | '75' | '100' | 'auto';
+export type Size = '25' | '50' | '75' | '100' | 'auto';
 
-export type TBoxSpacing = '0' | '1' | '2' | '3' | '4' | '5' | 'auto';
+export type Spacing = '0' | '1' | '2' | '3' | '4' | '5' | 'auto';
 
-export type TBoxTextAlign = 'start' | 'center' | 'end';
+export type TextAlign = 'start' | 'center' | 'end';
 
-export type TBoxTextTransform = 'lowercase' | 'uppercase' | 'capitalize';
+export type TextTransform = 'lowercase' | 'uppercase' | 'capitalize';
 
-export type TBoxUserSelect = 'none' | 'all' | 'auto';
+export type UserSelect = 'none' | 'all' | 'auto';

@@ -1,13 +1,13 @@
 import classnames from 'classnames';
 
-import type { TBoxPosition, TBoxPositionEdge } from '../../types';
+import type { Position, PositionEdge } from '../../types';
 
 export interface PositionProps {
-  position?: TBoxPosition;
-  top?: TBoxPositionEdge;
-  start?: TBoxPositionEdge;
-  bottom?: TBoxPositionEdge;
-  end?: TBoxPositionEdge;
+  position?: Position;
+  top?: PositionEdge;
+  start?: PositionEdge;
+  bottom?: PositionEdge;
+  end?: PositionEdge;
 }
 
 const generatePositionClassNames = ({

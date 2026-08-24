@@ -1,34 +1,34 @@
 import classnames from 'classnames';
 
 import type {
-  TBoxAlign,
-  TBoxOpacity,
-  TBoxOverflow,
-  TBoxPointerEvents,
-  TBoxRadius,
-  TBoxSizing,
-  TBoxUserSelect,
+  Opacity,
+  Overflow,
+  PointerEvents,
+  Radius,
+  Size,
+  UserSelect,
+  VerticalAlign,
 } from '../../types';
 
 export interface VisualProps {
-  align?: TBoxAlign;
+  align?: VerticalAlign;
   background?: string;
   color?: string;
   gradient?: boolean;
-  height?: TBoxSizing;
+  height?: Size;
   invisible?: boolean;
   minViewportHeight?: boolean;
   minViewportWidth?: boolean;
-  opacity?: TBoxOpacity;
-  overflow?: TBoxOverflow;
-  pointerEvents?: TBoxPointerEvents;
-  radius?: TBoxRadius;
+  opacity?: Opacity;
+  overflow?: Overflow;
+  pointerEvents?: PointerEvents;
+  radius?: Radius;
   small?: boolean;
-  userSelect?: TBoxUserSelect;
+  userSelect?: UserSelect;
   visible?: boolean;
   viewportHeight?: boolean;
   viewportWidth?: boolean;
-  width?: TBoxSizing;
+  width?: Size;
 }
 
 const generateVisualClassNames = ({
