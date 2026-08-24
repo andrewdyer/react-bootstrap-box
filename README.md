@@ -1,18 +1,18 @@
 ![React + Bootstrap Box](https://public-assets.dyerlabs.co.uk/images/repos/react-bootstrap-box.png)
 
-# 📦 React + Bootstrap Box
+# React + Bootstrap Box
 
 A versatile [React](https://react.dev/) component designed to apply [Bootstrap](https://getbootstrap.com/) utility classnames based on provided props.
 
-## 📄 License
+## License
 
 Licensed under MIT. Totally free for private or commercial projects.
 
-## ✨ Introduction
+## Introduction
 
 The **React + Bootstrap Box** component simplifies applying Bootstrap utility classes in React. With an intuitive prop-driven API, it enables you to quickly and efficiently manage styles like borders, spacing, flexbox, typography, and more - all without manually writing classnames.
 
-## 📥 Installation
+## Installation
 
 To install this package use npm:
 
@@ -26,7 +26,7 @@ Or with Yarn:
 yarn add bootstrap react-bootstrap-box
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Including Bootstrap CSS
 
@@ -36,7 +36,7 @@ First, ensure Bootstrap CSS is included in your project:
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
-## 📖 Usage
+## Usage
 
 ### Using the Box Component
 
@@ -58,6 +58,6 @@ const App = () => {
 export default App;
 ```
 
-## 📚 Learn More
+## Learn More
 
 Discover the full potential of the **React + Bootstrap Box** component by exploring its [Storybook documentation](https://box.andrewdyer.rocks/), where you'll find live examples, interactive demos, and detailed use cases for every prop.
